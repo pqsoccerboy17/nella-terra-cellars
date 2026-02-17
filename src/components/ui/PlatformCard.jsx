@@ -1,6 +1,6 @@
 export default function PlatformCard({ name, color, metrics, description }) {
   return (
-    <div className="group relative bg-parchment rounded-xl p-6 border border-oak/30 hover:border-wine/40 transition-all">
+    <div className="group relative glass glass-hover glass-shimmer p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">

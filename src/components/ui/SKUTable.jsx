@@ -29,10 +29,10 @@ export default function SKUTable({ wines }) {
   }
 
   return (
-    <div className="overflow-x-auto rounded-xl border border-oak/30">
+    <div className="glass overflow-x-auto">
       <table className="w-full text-sm">
         <thead>
-          <tr className="bg-parchment border-b border-oak/30">
+          <tr className="border-b border-oak/30">
             {COLUMNS.map((col) => (
               <th
                 key={col.key}
