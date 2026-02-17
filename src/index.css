@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --color-wine: #722F37;
+  --color-wine-dark: #5A2029;
+  --color-wine-light: #9E4A53;
+  --color-cream: #F9F5EE;
+  --color-parchment: #EDE8DF;
+  --color-oak: #C4A882;
+  --color-cork: #6B5B45;
+  --color-slate: #2D2A26;
+  --color-charcoal: #1A1816;
+  --color-sage: #6B8F6F;
+  --color-gold: #B8963E;
+
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-slate);
+  background-color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-wine);
+  outline-offset: 2px;
+}
+
+/* Pulse animation for status dots */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
