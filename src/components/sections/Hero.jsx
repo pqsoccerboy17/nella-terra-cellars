@@ -6,7 +6,7 @@ import PageTransition from '../shared/PageTransition'
 export default function Hero() {
   return (
     <PageTransition>
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
         {/* Background image with dark overlay */}
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -24,7 +24,7 @@ export default function Hero() {
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="section-label-light"
           >
-            Revenue Automation for Wineries
+            Automated Revenue Operations
           </motion.span>
 
           <motion.h1
@@ -33,10 +33,10 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="font-display text-4xl md:text-6xl text-cream font-bold leading-tight mb-6"
           >
-            Your revenue lives in four&nbsp;places.
+            Four platforms. One&nbsp;agent.
             <br />
             <GradientText as="span" className="text-4xl md:text-6xl font-display font-bold">
-              Your report lives in a spreadsheet.
+              Zero manual exports.
             </GradientText>
           </motion.h1>
 
@@ -46,9 +46,9 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="text-lg md:text-xl text-cream/80 max-w-2xl mx-auto mb-10"
           >
-            Every month, you pull data from Commerce7, Tock, Square, and VinoShipper.
-            You paste it into Google Sheets. You hand it to your bookkeeper.
-            It takes 3-4 hours and something always gets missed.
+            Claude Code orchestrates MCP servers across Commerce7, Tock, Square,
+            and VinoShipper — pulling, normalizing, and categorizing revenue data
+            into QuickBooks-ready reports every night.
           </motion.p>
 
           <motion.div
@@ -62,10 +62,10 @@ export default function Hero() {
               className="inline-block"
             >
               <Link
-                to="/value"
+                to="/architecture"
                 className="inline-block bg-wine hover:bg-wine-dark text-cream px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
               >
-                See What Changes
+                Explore the Architecture
               </Link>
             </motion.div>
           </motion.div>

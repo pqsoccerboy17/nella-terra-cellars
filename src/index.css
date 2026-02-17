@@ -162,3 +162,65 @@ body {
     padding: 6rem 2rem;
   }
 }
+
+/* -------------------------------------------------------
+   Docs prose — readable text styling for charcoal bg.
+   ------------------------------------------------------- */
+.docs-prose p {
+  color: rgba(249, 245, 238, 0.85);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.docs-prose ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.docs-prose ol {
+  list-style: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.docs-prose li {
+  color: rgba(249, 245, 238, 0.85);
+  line-height: 1.75;
+  margin-bottom: 0.25rem;
+}
+
+.docs-prose strong {
+  color: var(--color-cream);
+  font-weight: 600;
+}
+
+.docs-prose a {
+  color: var(--color-gold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+.docs-prose a:hover {
+  color: var(--color-oak);
+}
+
+.docs-prose code {
+  background: rgba(45, 42, 38, 0.6);
+  color: var(--color-gold);
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+  font-size: 0.875em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.docs-prose h2,
+.docs-prose h3,
+.docs-prose h4 {
+  color: var(--color-cream);
+}
+
+.docs-divider {
+  border-color: rgba(249, 245, 238, 0.1);
+}

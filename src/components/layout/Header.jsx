@@ -4,10 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const NAV_LINKS = [
   { to: '/', label: 'Home' },
-  { to: '/value', label: 'What Changes' },
-  { to: '/platforms', label: 'Your Data' },
+  { to: '/architecture', label: 'Architecture' },
   { to: '/dashboard', label: 'Dashboard' },
-  { to: '/how-it-works', label: 'How It Works' },
 ]
 
 /**
@@ -154,10 +152,10 @@ export default function Header() {
                 )
               })}
               <Link
-                to="/value"
+                to="/architecture"
                 className="mt-4 inline-block bg-wine hover:bg-wine-dark text-cream px-8 py-3 rounded-lg font-semibold transition-colors"
               >
-                See What Changes
+                Explore Docs
               </Link>
             </motion.nav>
           </motion.div>

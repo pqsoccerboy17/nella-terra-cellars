@@ -1,31 +1,44 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Header from './components/layout/Header'
+import DocsLayout from './components/layout/DocsLayout'
 import ScrollToTop from './components/shared/ScrollToTop'
 import Hero from './components/sections/Hero'
-import ValueProp from './components/sections/ValueProp'
-import Platforms from './components/sections/Platforms'
-import Dashboard from './components/sections/Dashboard'
-import HowItWorks from './components/sections/HowItWorks'
+import Architecture from './components/sections/Architecture'
+import Integrations from './components/sections/Integrations'
+import Pipeline from './components/sections/Pipeline'
+import Orchestration from './components/sections/Orchestration'
+import DashboardDocs from './components/sections/DashboardDocs'
 import Footer from './components/ui/Footer'
 
 export default function App() {
   const location = useLocation()
+  const isHome = location.pathname === '/'
+
+  if (isHome) {
+    return (
+      <div className="min-h-screen bg-cream">
+        <Header />
+        <ScrollToTop />
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Hero />} />
+          </Routes>
+        </AnimatePresence>
+        <Footer />
+      </div>
+    )
+  }
 
   return (
-    <div className="min-h-screen bg-cream">
-      <Header />
-      <ScrollToTop />
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Hero />} />
-          <Route path="/value" element={<ValueProp />} />
-          <Route path="/platforms" element={<Platforms />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/how-it-works" element={<HowItWorks />} />
-        </Routes>
-      </AnimatePresence>
-      <Footer />
-    </div>
+    <DocsLayout>
+      <Routes location={location} key={location.pathname}>
+        <Route path="/architecture" element={<Architecture />} />
+        <Route path="/integrations" element={<Integrations />} />
+        <Route path="/pipeline" element={<Pipeline />} />
+        <Route path="/orchestration" element={<Orchestration />} />
+        <Route path="/dashboard" element={<DashboardDocs />} />
+      </Routes>
+    </DocsLayout>
   )
 }

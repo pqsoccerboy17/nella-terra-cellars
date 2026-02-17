@@ -21,12 +21,13 @@ export default function Footer() {
         >
           Let's Talk
         </motion.a>
-        <div className="mt-8 flex justify-center gap-6 text-sm text-cream/50">
+        <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-cream/50">
           <Link to="/" className="hover:text-cream transition-colors">Home</Link>
-          <Link to="/value" className="hover:text-cream transition-colors">What Changes</Link>
-          <Link to="/platforms" className="hover:text-cream transition-colors">Your Data</Link>
+          <Link to="/architecture" className="hover:text-cream transition-colors">Architecture</Link>
+          <Link to="/integrations" className="hover:text-cream transition-colors">Integrations</Link>
+          <Link to="/pipeline" className="hover:text-cream transition-colors">Pipeline</Link>
+          <Link to="/orchestration" className="hover:text-cream transition-colors">Orchestration</Link>
           <Link to="/dashboard" className="hover:text-cream transition-colors">Dashboard</Link>
-          <Link to="/how-it-works" className="hover:text-cream transition-colors">How It Works</Link>
         </div>
         <p className="mt-8 text-sm text-cream/40">
           Demo using representative data. All figures are illustrative.

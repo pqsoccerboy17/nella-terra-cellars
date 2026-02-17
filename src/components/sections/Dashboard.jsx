@@ -40,15 +40,14 @@ function CustomTooltip({ active, payload, label }) {
   )
 }
 
-export default function Dashboard() {
+export default function Dashboard({ embedded = false }) {
   const [selectedMonth, setSelectedMonth] = useState('Oct')
   const kpi = kpiByMonth[selectedMonth]
   const { count: heroCount, ref: heroRef } = useCountUp(kpi.totalRevenue)
 
-  return (
-    <PageTransition>
-      <section className="section-padding bg-cream">
-        <div className="max-w-6xl mx-auto">
+  const content = (
+    <section className="section-padding bg-cream">
+      <div className="max-w-6xl mx-auto">
           <AnimatedSection className="text-center mb-10">
             <span className="section-label">Unified Dashboard</span>
             <h2 className="font-display text-3xl md:text-5xl text-slate font-bold mb-4">
@@ -168,6 +167,9 @@ export default function Dashboard() {
           </AnimatedDiv>
         </div>
       </section>
-    </PageTransition>
   )
+
+  if (embedded) return content
+
+  return <PageTransition>{content}</PageTransition>
 }
