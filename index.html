@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script>
+      (function(){
+        var t = localStorage.getItem('ntc-theme');
+        if (!t) t = 'dark';
+        var isDark = t === 'dark' || (t === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (isDark) document.documentElement.classList.add('dark');
+      })();
+    </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/nella-terra-cellars/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,8 +23,8 @@
         }
       })();
     </script>
-    <script type="module" crossorigin src="/nella-terra-cellars/assets/index-D1V2kyri.js"></script>
-    <link rel="stylesheet" crossorigin href="/nella-terra-cellars/assets/index-DkDhKskX.css">
+    <script type="module" crossorigin src="/nella-terra-cellars/assets/index-DwapOzFj.js"></script>
+    <link rel="stylesheet" crossorigin href="/nella-terra-cellars/assets/index-C2I7RlJo.css">
   </head>
   <body>
     <div id="root"></div>
