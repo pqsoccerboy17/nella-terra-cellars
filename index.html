@@ -5,7 +5,8 @@
       (function(){
         var t = localStorage.getItem('ntc-theme');
         if (!t) t = 'dark';
-        if (t === 'dark') document.documentElement.classList.add('dark');
+        var isDark = t === 'dark' || (t === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (isDark) document.documentElement.classList.add('dark');
       })();
     </script>
     <meta charset="UTF-8" />

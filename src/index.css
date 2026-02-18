@@ -4,18 +4,18 @@
 
 @theme {
   /* Core palette */
-  --color-text: #2D2A26;
-  --color-text-secondary: #6B6560;
-  --color-surface: #FAF9F7;
+  --color-text: #1C1917;
+  --color-text-secondary: #57534E;
+  --color-surface: #F5F5F4;
   --color-surface-alt: #FFFFFF;
-  --color-accent: #8B4049;
-  --color-border: #E8E4DE;
+  --color-accent: #9F1239;
+  --color-border: #D6D3D1;
 
   /* Supporting */
-  --color-accent-light: #F2E8EA;
-  --color-accent-dark: #6B2F36;
-  --color-success: #6B8F6F;
-  --color-warning: #B8963E;
+  --color-accent-light: #FDE4E8;
+  --color-accent-dark: #881337;
+  --color-success: #166534;
+  --color-warning: #A16207;
   --color-code-bg: #1E1C1A;
 
   /* Dark sections (Hero, Footer) */

@@ -1,23 +1,54 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 const STORAGE_KEY = 'ntc-theme'
+const MEDIA_QUERY = '(prefers-color-scheme: dark)'
+
+function resolveEffective(pref) {
+  if (pref === 'system') {
+    return window.matchMedia(MEDIA_QUERY).matches ? 'dark' : 'light'
+  }
+  return pref
+}
 
 export default function useTheme() {
-  const [theme, setTheme] = useState(() => {
+  const [preference, setPreference] = useState(() => {
     return localStorage.getItem(STORAGE_KEY) || 'dark'
   })
 
+  const theme = resolveEffective(preference)
+
   useEffect(() => {
     const root = document.documentElement
-    if (theme === 'dark') {
+    const effective = resolveEffective(preference)
+
+    if (effective === 'dark') {
       root.classList.add('dark')
     } else {
       root.classList.remove('dark')
     }
-    localStorage.setItem(STORAGE_KEY, theme)
-  }, [theme])
+    localStorage.setItem(STORAGE_KEY, preference)
 
-  const toggleTheme = () => setTheme(prev => (prev === 'dark' ? 'light' : 'dark'))
+    if (preference === 'system') {
+      const mql = window.matchMedia(MEDIA_QUERY)
+      const handler = (e) => {
+        if (e.matches) {
+          root.classList.add('dark')
+        } else {
+          root.classList.remove('dark')
+        }
+      }
+      mql.addEventListener('change', handler)
+      return () => mql.removeEventListener('change', handler)
+    }
+  }, [preference])
 
-  return { theme, toggleTheme }
+  const cycleTheme = useCallback(() => {
+    setPreference(prev => {
+      if (prev === 'dark') return 'light'
+      if (prev === 'light') return 'system'
+      return 'dark'
+    })
+  }, [])
+
+  return { preference, theme, cycleTheme }
 }
