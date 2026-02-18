@@ -2,18 +2,16 @@ import { motion } from 'framer-motion'
 
 /**
  * 4-tier architecture SVG: Platforms -> MCP Servers -> Claude Code/Cowork -> Outputs.
- * Single accent color at varying opacities for visual differentiation.
+ * Brand colors per platform, clickable boxes linking to platform sites.
  */
 const ease = [0.25, 0.46, 0.45, 0.94]
 
 const PLATFORMS = [
-  { name: 'Commerce7' },
-  { name: 'Tock' },
-  { name: 'Square' },
-  { name: 'VinoShipper' },
+  { name: 'Commerce7', color: '#8B4049', url: 'https://commerce7.com' },
+  { name: 'Tock', color: '#2D2D2D', url: 'https://www.exploretock.com' },
+  { name: 'Square', color: '#4A7EC4', url: 'https://squareup.com' },
+  { name: 'VinoShipper', color: '#6B2D5B', url: 'https://vinoshipper.com' },
 ]
-
-const PLATFORM_OPACITIES = [1, 0.8, 0.65, 0.5]
 
 const MCP_SERVERS = [
   { name: 'C7 MCP', x: 12 },
@@ -23,13 +21,24 @@ const MCP_SERVERS = [
 ]
 
 const OUTPUTS = [
-  { name: 'Google Sheets' },
-  { name: 'QuickBooks' },
+  { name: 'Google Sheets', url: 'https://sheets.google.com' },
+  { name: 'QuickBooks', url: 'https://quickbooks.intuit.com' },
 ]
 
 export default function DiagramArchitecture() {
   return (
     <svg viewBox="0 0 780 420" className="w-full max-w-4xl mx-auto" aria-label="4-tier architecture diagram">
+      {/* SVG glow filter for hover */}
+      <defs>
+        <filter id="glow-arch" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+
       {/* Tier labels */}
       <text x="390" y="24" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="10" fontWeight="700" letterSpacing="0.1em" fontFamily="DM Sans, sans-serif">PLATFORM LAYER</text>
       <text x="390" y="134" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="10" fontWeight="700" letterSpacing="0.1em" fontFamily="DM Sans, sans-serif">MCP SERVERS</text>
@@ -40,16 +49,19 @@ export default function DiagramArchitecture() {
       {PLATFORMS.map((p, i) => {
         const x = 12 + i * 195
         return (
-          <motion.g
-            key={p.name}
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1, ease }}
-          >
-            <rect x={x} y="36" width="175" height="44" rx="8" fill="var(--color-accent)" opacity={PLATFORM_OPACITIES[i]} />
-            <text x={x + 87.5} y="63" textAnchor="middle" fill="white" fontSize="13" fontWeight="600" fontFamily="DM Sans, sans-serif">{p.name}</text>
-          </motion.g>
+          <a key={p.name} href={p.url} target="_blank" rel="noopener noreferrer">
+            <motion.g
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1, ease }}
+              whileHover={{ filter: 'url(#glow-arch)' }}
+              style={{ cursor: 'pointer' }}
+            >
+              <rect x={x} y="36" width="175" height="44" rx="8" fill={p.color} />
+              <text x={x + 87.5} y="63" textAnchor="middle" fill="white" fontSize="13" fontWeight="600" fontFamily="DM Sans, sans-serif">{p.name}</text>
+            </motion.g>
+          </a>
         )
       })}
 
@@ -61,6 +73,7 @@ export default function DiagramArchitecture() {
             key={`p-mcp-${i}`}
             x1={x} y1="80" x2={x} y2="145"
             stroke="var(--color-border)" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.6"
+            className="animate-dash-flow"
             initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
             viewport={{ once: true }}
@@ -91,6 +104,7 @@ export default function DiagramArchitecture() {
             key={`mcp-auto-${i}`}
             x1={x} y1="185" x2={390} y2="255"
             stroke="var(--color-border)" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.5"
+            className="animate-dash-flow"
             initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
             viewport={{ once: true }}
@@ -120,6 +134,7 @@ export default function DiagramArchitecture() {
             key={`auto-out-${i}`}
             x1={390} y1="310" x2={targetX} y2="365"
             stroke="var(--color-border)" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.6"
+            className="animate-dash-flow"
             initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
             viewport={{ once: true }}
@@ -132,16 +147,19 @@ export default function DiagramArchitecture() {
       {OUTPUTS.map((o, i) => {
         const x = 100 + i * 390
         return (
-          <motion.g
-            key={o.name}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.9 + i * 0.1, ease }}
-          >
-            <rect x={x} y="365" width="190" height="44" rx="8" fill="var(--color-success)" opacity="0.9" />
-            <text x={x + 95} y="392" textAnchor="middle" fill="white" fontSize="13" fontWeight="600" fontFamily="DM Sans, sans-serif">{o.name}</text>
-          </motion.g>
+          <a key={o.name} href={o.url} target="_blank" rel="noopener noreferrer">
+            <motion.g
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.9 + i * 0.1, ease }}
+              whileHover={{ filter: 'url(#glow-arch)' }}
+              style={{ cursor: 'pointer' }}
+            >
+              <rect x={x} y="365" width="190" height="44" rx="8" fill="var(--color-success)" opacity="0.9" />
+              <text x={x + 95} y="392" textAnchor="middle" fill="white" fontSize="13" fontWeight="600" fontFamily="DM Sans, sans-serif">{o.name}</text>
+            </motion.g>
+          </a>
         )
       })}
     </svg>

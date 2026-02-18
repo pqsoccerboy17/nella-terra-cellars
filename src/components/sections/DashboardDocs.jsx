@@ -15,7 +15,7 @@ export default function DashboardDocs() {
     <>
       <AnimatedSection>
         <span className="section-label">Output</span>
-        <h1 className="text-4xl md:text-[53px] font-bold text-text mb-4">Live Demo Dashboard</h1>
+        <h1 className="font-display text-4xl md:text-[53px] font-bold text-text mb-4">Live Demo Dashboard</h1>
         <p>
           The dashboard below shows what Nella Terra's unified revenue view looks like after the automation pipeline runs. All four platforms' data is merged, categorized, and displayed in a single interactive view.
         </p>

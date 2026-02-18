@@ -3,6 +3,7 @@ import TableOfContents from '../ui/TableOfContents'
 import TechCallout from '../ui/TechCallout'
 import DiagramArchitecture from '../ui/DiagramArchitecture'
 import FlowDiagram from '../ui/FlowDiagram'
+import ExternalLink from '../ui/ExternalLink'
 import { AnimatedSection, AnimatedDiv } from '../shared/AnimatedSection'
 import { techStack, designPatterns } from '../../data/docs-content'
 
@@ -19,7 +20,7 @@ export default function Architecture() {
     <>
       <AnimatedSection>
         <span className="section-label">Overview</span>
-        <h1 className="text-4xl md:text-[53px] font-bold text-text mb-4">System Architecture</h1>
+        <h1 className="font-display text-4xl md:text-[53px] font-bold text-text mb-4">System Architecture</h1>
         <p>
           Nella Terra's revenue automation connects four wine industry platforms through Model Context Protocol (MCP) servers, orchestrated by Claude Code running in headless mode. Data flows through a normalize-categorize-reconcile pipeline every night, producing QuickBooks-ready reports in Google Sheets.
         </p>
@@ -43,7 +44,9 @@ export default function Architecture() {
               {techStack.platform.map(t => (
                 <div key={t.name} className="flex justify-between items-start">
                   <div>
-                    <p className="text-text font-semibold text-base">{t.name}</p>
+                    <p className="text-text font-semibold text-base">
+                      {t.url ? <ExternalLink href={t.url}>{t.name}</ExternalLink> : t.name}
+                    </p>
                     <p className="text-text-secondary text-sm">{t.role}</p>
                   </div>
                   <span className="text-text-secondary text-sm shrink-0 ml-4">{t.api} / {t.auth}</span>
@@ -76,7 +79,9 @@ export default function Architecture() {
             {techStack.output.map(t => (
               <div key={t.name} className="flex justify-between items-start">
                 <div>
-                  <p className="text-text font-semibold text-base">{t.name}</p>
+                  <p className="text-text font-semibold text-base">
+                    {t.url ? <ExternalLink href={t.url}>{t.name}</ExternalLink> : t.name}
+                  </p>
                   <p className="text-text-secondary text-sm">{t.role}</p>
                 </div>
                 <span className="text-text-secondary text-sm shrink-0 ml-4">{t.auth}</span>

@@ -41,6 +41,7 @@ export const platforms = [
   {
     name: 'Commerce7',
     color: '#8B4049',
+    url: 'https://commerce7.com',
     metrics: [
       { label: 'Club Members', value: '187' },
       { label: 'Avg LTV', value: '$2,840' },
@@ -50,7 +51,8 @@ export const platforms = [
   },
   {
     name: 'Tock',
-    color: '#A85A62',
+    color: '#2D2D2D',
+    url: 'https://www.exploretock.com',
     metrics: [
       { label: 'Tastings Booked', value: '94' },
       { label: 'Avg Ticket', value: '$68' },
@@ -60,7 +62,8 @@ export const platforms = [
   },
   {
     name: 'Square',
-    color: '#B87078',
+    color: '#4A7EC4',
+    url: 'https://squareup.com',
     metrics: [
       { label: 'Transactions', value: '312' },
       { label: 'Avg Sale', value: '$47' },
@@ -70,7 +73,8 @@ export const platforms = [
   },
   {
     name: 'VinoShipper',
-    color: '#C4878E',
+    color: '#6B2D5B',
+    url: 'https://vinoshipper.com',
     metrics: [
       { label: 'Orders', value: '43' },
       { label: 'States', value: '11' },
@@ -125,13 +129,23 @@ export const kpiByMonth = {
 
 // ── Integration Feasibility ──
 export const integrations = [
-  { platform: 'Commerce7', api: 'REST', auth: 'Basic Auth', mcp: 'None verified', status: 'Ready', note: 'Well-documented, cursor pagination, 100 req/min' },
-  { platform: 'Tock', api: 'REST', auth: 'API Key', mcp: 'None', status: 'Verify Plan', note: 'Premium plan required — must verify current plan' },
-  { platform: 'Square', api: 'REST', auth: 'Access Token', mcp: 'Official MCP', status: 'Ready', note: 'Best integration path, read-only mode available' },
-  { platform: 'VinoShipper', api: 'REST', auth: 'API Key + Secret', mcp: 'None', status: 'Ready', note: 'Simple API; native C7 integration may overlap' },
-  { platform: 'Google Sheets', api: 'REST', auth: 'Service Account', mcp: 'Official Google MCP', status: 'Ready', note: 'Clean automation path' },
-  { platform: 'QuickBooks', api: 'REST', auth: 'OAuth 2.0', mcp: 'Intuit MCP (preview)', status: 'Possible', note: 'OAuth token lifecycle adds complexity' },
+  { platform: 'Commerce7', url: 'https://commerce7.com', api: 'REST', auth: 'Basic Auth', mcp: 'None verified', status: 'Ready', note: 'Well-documented, cursor pagination, 100 req/min' },
+  { platform: 'Tock', url: 'https://www.exploretock.com', api: 'REST', auth: 'API Key', mcp: 'None', status: 'Verify Plan', note: 'Premium plan required — must verify current plan' },
+  { platform: 'Square', url: 'https://squareup.com', api: 'REST', auth: 'Access Token', mcp: 'Official MCP', status: 'Ready', note: 'Best integration path, read-only mode available' },
+  { platform: 'VinoShipper', url: 'https://vinoshipper.com', api: 'REST', auth: 'API Key + Secret', mcp: 'None', status: 'Ready', note: 'Simple API; native C7 integration may overlap' },
+  { platform: 'Google Sheets', url: 'https://sheets.google.com', api: 'REST', auth: 'Service Account', mcp: 'Official Google MCP', status: 'Ready', note: 'Clean automation path' },
+  { platform: 'QuickBooks', url: 'https://quickbooks.intuit.com', api: 'REST', auth: 'OAuth 2.0', mcp: 'Intuit MCP (preview)', status: 'Possible', note: 'OAuth token lifecycle adds complexity' },
 ]
+
+// ── Quick lookup by platform name ──
+export const PLATFORM_URLS = {
+  'Commerce7': 'https://commerce7.com',
+  'Tock': 'https://www.exploretock.com',
+  'Square': 'https://squareup.com',
+  'VinoShipper': 'https://vinoshipper.com',
+  'Google Sheets': 'https://sheets.google.com',
+  'QuickBooks': 'https://quickbooks.intuit.com',
+}
 
 // ── Recent Activity (static) ──
 export const recentActivity = [

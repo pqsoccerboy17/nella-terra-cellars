@@ -19,7 +19,7 @@ export default function Pipeline() {
     <>
       <AnimatedSection>
         <span className="section-label">Platform Layer</span>
-        <h1 className="text-4xl md:text-[53px] font-bold text-text mb-4">Data Pipeline</h1>
+        <h1 className="font-display text-4xl md:text-[53px] font-bold text-text mb-4">Data Pipeline</h1>
         <p>
           Raw API responses from four platforms with different schemas, currencies, and ID systems get transformed into a unified order format, categorized into QuickBooks accounts, deduplicated across overlapping platforms, and written to structured outputs.
         </p>

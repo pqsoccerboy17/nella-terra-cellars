@@ -1,6 +1,7 @@
 import { integrations } from '../../data/dummy'
+import ExternalLink from './ExternalLink'
 
-/** Integration feasibility table. */
+/** Integration feasibility table with linked platform names. */
 export default function IntegrationTable() {
   return (
     <div>
@@ -18,7 +19,13 @@ export default function IntegrationTable() {
           <tbody>
             {integrations.map((row) => (
               <tr key={row.platform} className="border-b border-border hover:bg-surface">
-                <td className="px-4 py-3 font-semibold text-text">{row.platform}</td>
+                <td className="px-4 py-3 font-semibold text-text">
+                  {row.url ? (
+                    <ExternalLink href={row.url}>{row.platform}</ExternalLink>
+                  ) : (
+                    row.platform
+                  )}
+                </td>
                 <td className="px-4 py-3 text-text-secondary">{row.api}</td>
                 <td className="px-4 py-3 text-text-secondary">{row.auth}</td>
                 <td className="px-4 py-3">

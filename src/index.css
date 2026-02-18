@@ -68,6 +68,20 @@ body {
   animation: pulse-dot 2s ease-in-out infinite;
 }
 
+/* Display font for headlines */
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Flowing dashed lines for SVG diagrams */
+@keyframes dash-flow {
+  to { stroke-dashoffset: -20; }
+}
+
+.animate-dash-flow {
+  animation: dash-flow 1.2s linear infinite;
+}
+
 /* -------------------------------------------------------
    Card — solid white card with sand border.
    ------------------------------------------------------- */

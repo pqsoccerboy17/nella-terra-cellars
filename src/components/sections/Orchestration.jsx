@@ -19,7 +19,7 @@ export default function Orchestration() {
     <>
       <AnimatedSection>
         <span className="section-label">Automation Layer</span>
-        <h1 className="text-4xl md:text-[53px] font-bold text-text mb-4">Claude Code + Cowork</h1>
+        <h1 className="font-display text-4xl md:text-[53px] font-bold text-text mb-4">Claude Code + Cowork</h1>
         <p>
           The automation layer uses Claude Code in headless mode as the orchestration engine. A single main agent coordinates four parallel Cowork sub-agents — one per platform — then aggregates results through the normalize-categorize-reconcile pipeline.
         </p>
