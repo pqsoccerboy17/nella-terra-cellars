@@ -4,9 +4,9 @@ import { AnimatedSection } from '../shared/AnimatedSection'
 
 export default function Footer() {
   return (
-    <AnimatedSection className="bg-charcoal text-white/70 py-16">
+    <AnimatedSection className="bg-surface-alt text-text-secondary py-16">
       <div className="max-w-6xl mx-auto px-6 text-center">
-        <h3 className="text-2xl text-white font-bold mb-4">
+        <h3 className="text-2xl text-text font-bold mb-4">
           Ready to build this for real?
         </h3>
         <p className="text-lg mb-6 max-w-xl mx-auto">
@@ -21,15 +21,15 @@ export default function Footer() {
         >
           Let's Talk
         </motion.a>
-        <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-white/50">
-          <Link to="/" className="hover:text-white transition-colors">Home</Link>
-          <Link to="/architecture" className="hover:text-white transition-colors">Architecture</Link>
-          <Link to="/integrations" className="hover:text-white transition-colors">Integrations</Link>
-          <Link to="/pipeline" className="hover:text-white transition-colors">Pipeline</Link>
-          <Link to="/orchestration" className="hover:text-white transition-colors">Orchestration</Link>
-          <Link to="/dashboard" className="hover:text-white transition-colors">Dashboard</Link>
+        <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-text-secondary">
+          <Link to="/" className="hover:text-text transition-colors">Home</Link>
+          <Link to="/architecture" className="hover:text-text transition-colors">Architecture</Link>
+          <Link to="/integrations" className="hover:text-text transition-colors">Integrations</Link>
+          <Link to="/pipeline" className="hover:text-text transition-colors">Pipeline</Link>
+          <Link to="/orchestration" className="hover:text-text transition-colors">Orchestration</Link>
+          <Link to="/dashboard" className="hover:text-text transition-colors">Dashboard</Link>
         </div>
-        <p className="mt-8 text-sm text-white/40">
+        <p className="mt-8 text-sm text-text-secondary">
           Demo using representative data. All figures are illustrative.
           <br />
           Built by Mike Duncan — YourCo

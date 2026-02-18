@@ -11,7 +11,7 @@ const STAGES = [
   { label: 'Normalize', detail: 'Common order schema', opacity: 0.85, icon: '\u27F3' },
   { label: 'Categorize', detail: 'QB account mapping', opacity: 0.7, icon: '\u25A6' },
   { label: 'Reconcile', detail: 'Cross-platform dedup', opacity: 0.55, icon: '\u21C4' },
-  { label: 'Output', detail: 'Sheets + QuickBooks', color: '#6B8F6F', icon: '\u2713' },
+  { label: 'Output', detail: 'Sheets + QuickBooks', color: 'var(--color-success)', icon: '\u2713' },
 ]
 
 export default function DiagramPipeline() {
@@ -24,7 +24,7 @@ export default function DiagramPipeline() {
     <svg viewBox={`0 0 500 ${totalHeight}`} className="w-full max-w-md mx-auto" aria-label="Data pipeline diagram showing 5 transformation stages">
       {STAGES.map((stage, i) => {
         const y = startY + i * (stageHeight + gap)
-        const fill = stage.color || '#8B4049'
+        const fill = stage.color || 'var(--color-accent)'
         const fillOpacity = stage.opacity || 0.9
         return (
           <motion.g

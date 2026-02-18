@@ -28,7 +28,7 @@ export default function FlowDiagram() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: i * 0.1, ease }}
           >
-            <rect x="10" y={y} width="160" height="42" rx="8" fill="#8B4049" opacity={p.opacity} />
+            <rect x="10" y={y} width="160" height="42" rx="8" fill="var(--color-accent)" opacity={p.opacity} />
             <text x="90" y={y + 26} textAnchor="middle" fill="white" fontSize="13" fontWeight="600" fontFamily="DM Sans, sans-serif">
               {p.name}
             </text>
@@ -45,7 +45,7 @@ export default function FlowDiagram() {
         transition={{ duration: 0.7, delay: 0.3, ease }}
         style={{ transformOrigin: '400px 125px' }}
       >
-        <rect x="295" y="85" width="210" height="80" rx="12" fill="#8B4049" />
+        <rect x="295" y="85" width="210" height="80" rx="12" fill="var(--color-accent)" />
         <text x="400" y="118" textAnchor="middle" fill="white" fontSize="14" fontWeight="700" fontFamily="DM Sans, sans-serif">
           Automation Layer
         </text>
@@ -66,7 +66,7 @@ export default function FlowDiagram() {
             transition={{ duration: 0.6, delay: 0.5 + i * 0.1, ease }}
           >
             <line x1="510" y1="125" x2="600" y2={y + 21} stroke="var(--color-border)" strokeWidth="1.5" opacity="0.6" />
-            <rect x="600" y={y} width="180" height="42" rx="8" fill="#6B8F6F" opacity="0.9" />
+            <rect x="600" y={y} width="180" height="42" rx="8" fill="var(--color-success)" opacity="0.9" />
             <text x="690" y={y + 26} textAnchor="middle" fill="white" fontSize="13" fontWeight="600" fontFamily="DM Sans, sans-serif">
               {o.name}
             </text>

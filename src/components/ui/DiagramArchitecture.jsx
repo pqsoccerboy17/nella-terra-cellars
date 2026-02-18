@@ -47,7 +47,7 @@ export default function DiagramArchitecture() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1, ease }}
           >
-            <rect x={x} y="36" width="175" height="44" rx="8" fill="#8B4049" opacity={PLATFORM_OPACITIES[i]} />
+            <rect x={x} y="36" width="175" height="44" rx="8" fill="var(--color-accent)" opacity={PLATFORM_OPACITIES[i]} />
             <text x={x + 87.5} y="63" textAnchor="middle" fill="white" fontSize="13" fontWeight="600" fontFamily="DM Sans, sans-serif">{p.name}</text>
           </motion.g>
         )
@@ -107,7 +107,7 @@ export default function DiagramArchitecture() {
         transition={{ duration: 0.6, delay: 0.5, ease }}
         style={{ transformOrigin: '390px 280px' }}
       >
-        <rect x="140" y="255" width="500" height="55" rx="10" fill="#8B4049" />
+        <rect x="140" y="255" width="500" height="55" rx="10" fill="var(--color-accent)" />
         <text x="390" y="278" textAnchor="middle" fill="white" fontSize="14" fontWeight="700" fontFamily="DM Sans, sans-serif">Claude Code + Cowork</text>
         <text x="390" y="296" textAnchor="middle" fill="white" fontSize="11" opacity="0.7" fontFamily="DM Sans, sans-serif">Headless agent loop — 4 parallel sub-agents — nightly at 6:00 AM</text>
       </motion.g>
@@ -139,7 +139,7 @@ export default function DiagramArchitecture() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.9 + i * 0.1, ease }}
           >
-            <rect x={x} y="365" width="190" height="44" rx="8" fill="#6B8F6F" opacity="0.9" />
+            <rect x={x} y="365" width="190" height="44" rx="8" fill="var(--color-success)" opacity="0.9" />
             <text x={x + 95} y="392" textAnchor="middle" fill="white" fontSize="13" fontWeight="600" fontFamily="DM Sans, sans-serif">{o.name}</text>
           </motion.g>
         )

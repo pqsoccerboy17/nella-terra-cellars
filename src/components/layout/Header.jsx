@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import useTheme from '../../hooks/useTheme'
 
 const NAV_LINKS = [
   { to: '/', label: 'Home' },
@@ -11,6 +12,7 @@ const NAV_LINKS = [
 /** Fixed header: transparent on top, blurred on scroll. Stays dark for Hero page. */
 export default function Header() {
   const { pathname } = useLocation()
+  const { preference, cycleTheme } = useTheme()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -43,12 +45,12 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-charcoal/90 backdrop-blur-xl border-b border-white/10'
+            ? 'bg-surface-alt/90 backdrop-blur-xl border-b border-border'
             : 'bg-transparent'
         }`}
       >
         <div className="max-w-6xl mx-auto flex items-center justify-between px-6 h-16">
-          <Link to="/" className="text-lg text-white font-bold tracking-wide">
+          <Link to="/" className="text-lg text-text font-bold tracking-wide">
             Nella Terra Cellars
           </Link>
 
@@ -58,13 +60,13 @@ export default function Header() {
               const isActive = pathname === link.to
               return (
                 <span key={link.to} className="flex items-center">
-                  {i > 0 && <span className="w-px h-4 bg-white/20 mx-3" />}
+                  {i > 0 && <span className="w-px h-4 bg-border mx-3" />}
                   <Link
                     to={link.to}
                     className={`relative text-sm transition-colors pb-1 ${
                       isActive
-                        ? 'text-white font-semibold'
-                        : 'text-white/70 hover:text-white'
+                        ? 'text-text font-semibold'
+                        : 'text-text-secondary hover:text-text'
                     }`}
                   >
                     {link.label}
@@ -77,10 +79,38 @@ export default function Header() {
             })}
           </nav>
 
+          <div className="flex items-center gap-2">
+            {/* Theme toggle */}
+            <button
+              onClick={cycleTheme}
+              className="p-2 text-text-secondary hover:text-text transition-colors"
+              aria-label={
+                preference === 'dark' ? 'Dark mode — click for light' :
+                preference === 'light' ? 'Light mode — click for system' :
+                'System mode — click for dark'
+              }
+            >
+              {preference === 'dark' ? (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+              ) : preference === 'light' ? (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="5" />
+                  <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                </svg>
+              ) : (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                  <path d="M8 21h8M12 17v4" />
+                </svg>
+              )}
+            </button>
+
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-3 text-white/70 hover:text-white"
+            className="md:hidden p-3 text-text-secondary hover:text-text"
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
           >
@@ -107,6 +137,7 @@ export default function Header() {
               )}
             </svg>
           </button>
+          </div>
         </div>
       </header>
 
@@ -121,7 +152,7 @@ export default function Header() {
             className="fixed inset-0 z-40 md:hidden"
           >
             <div
-              className="absolute inset-0 bg-charcoal/95 backdrop-blur-xl"
+              className="absolute inset-0 bg-surface-alt/95 backdrop-blur-xl"
               onClick={() => setMobileOpen(false)}
               aria-hidden="true"
             />
@@ -140,8 +171,8 @@ export default function Header() {
                     to={link.to}
                     className={`text-xl transition-colors ${
                       isActive
-                        ? 'text-white font-semibold'
-                        : 'text-white/60 hover:text-white'
+                        ? 'text-text font-semibold'
+                        : 'text-text-secondary hover:text-text'
                     }`}
                   >
                     {link.label}

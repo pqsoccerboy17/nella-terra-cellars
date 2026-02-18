@@ -45,7 +45,7 @@ export default function DiagramOrchestration() {
         transition={{ duration: 0.5, delay: 0.2, ease }}
         style={{ transformOrigin: '350px 110px' }}
       >
-        <rect x="200" y="80" width="300" height="55" rx="10" fill="#8B4049" />
+        <rect x="200" y="80" width="300" height="55" rx="10" fill="var(--color-accent)" />
         <text x="350" y="103" textAnchor="middle" fill="white" fontSize="14" fontWeight="700" fontFamily="DM Sans, sans-serif">Main Claude Code Agent</text>
         <text x="350" y="121" textAnchor="middle" fill="white" fontSize="11" opacity="0.7" fontFamily="DM Sans, sans-serif">Headless mode — orchestrates all pulls</text>
       </motion.g>
@@ -89,7 +89,7 @@ export default function DiagramOrchestration() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.6 + i * 0.1, ease }}
           >
-            <rect x={x} y="185" width="140" height="60" rx="8" fill="#8B4049" opacity={agent.opacity} />
+            <rect x={x} y="185" width="140" height="60" rx="8" fill="var(--color-accent)" opacity={agent.opacity} />
             <text x={x + 70} y="212" textAnchor="middle" fill="white" fontSize="12" fontWeight="600" fontFamily="DM Sans, sans-serif">{agent.name}</text>
             <text x={x + 70} y="232" textAnchor="middle" fill="white" fontSize="10" opacity="0.6" fontFamily="DM Sans, sans-serif">{agent.time}</text>
           </motion.g>
@@ -119,7 +119,7 @@ export default function DiagramOrchestration() {
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 1.0, ease }}
       >
-        <rect x="200" y="300" width="300" height="55" rx="10" fill="#6B8F6F" />
+        <rect x="200" y="300" width="300" height="55" rx="10" fill="var(--color-success)" />
         <text x="350" y="323" textAnchor="middle" fill="white" fontSize="14" fontWeight="700" fontFamily="DM Sans, sans-serif">Aggregate + Categorize</text>
         <text x="350" y="341" textAnchor="middle" fill="white" fontSize="11" opacity="0.7" fontFamily="DM Sans, sans-serif">Normalize → Reconcile → Write to Sheets + QB</text>
       </motion.g>
