@@ -1,40 +1,40 @@
 import { integrations } from '../../data/dummy'
 
-/** Integration feasibility table — extracted from HowItWorks for reuse. */
+/** Integration feasibility table. */
 export default function IntegrationTable() {
   return (
     <div>
-      <div className="overflow-x-auto rounded-xl border border-cream/10">
-        <table className="w-full text-sm">
+      <div className="overflow-x-auto rounded-xl border border-border">
+        <table className="w-full text-base">
           <thead>
-            <tr className="border-b border-cream/10">
-              <th className="px-4 py-3 text-left font-semibold text-cream/70">Platform</th>
-              <th className="px-4 py-3 text-left font-semibold text-cream/70">API</th>
-              <th className="px-4 py-3 text-left font-semibold text-cream/70">Auth</th>
-              <th className="px-4 py-3 text-left font-semibold text-cream/70">MCP</th>
-              <th className="px-4 py-3 text-left font-semibold text-cream/70">Status</th>
+            <tr className="border-b border-border">
+              <th className="px-4 py-3 text-left font-semibold text-text-secondary">Platform</th>
+              <th className="px-4 py-3 text-left font-semibold text-text-secondary">API</th>
+              <th className="px-4 py-3 text-left font-semibold text-text-secondary">Auth</th>
+              <th className="px-4 py-3 text-left font-semibold text-text-secondary">MCP</th>
+              <th className="px-4 py-3 text-left font-semibold text-text-secondary">Status</th>
             </tr>
           </thead>
           <tbody>
             {integrations.map((row) => (
-              <tr key={row.platform} className="border-b border-cream/5 hover:bg-cream/5">
-                <td className="px-4 py-3 font-semibold text-cream">{row.platform}</td>
-                <td className="px-4 py-3 text-cream/70">{row.api}</td>
-                <td className="px-4 py-3 text-cream/70">{row.auth}</td>
+              <tr key={row.platform} className="border-b border-border hover:bg-surface">
+                <td className="px-4 py-3 font-semibold text-text">{row.platform}</td>
+                <td className="px-4 py-3 text-text-secondary">{row.api}</td>
+                <td className="px-4 py-3 text-text-secondary">{row.auth}</td>
                 <td className="px-4 py-3">
                   {row.mcp.includes('Official') || row.mcp.includes('Intuit') ? (
-                    <span className="text-sage font-semibold">{row.mcp}</span>
+                    <span className="text-success font-semibold">{row.mcp}</span>
                   ) : (
-                    <span className="text-cream/50">{row.mcp}</span>
+                    <span className="text-text-secondary">{row.mcp}</span>
                   )}
                 </td>
                 <td className="px-4 py-3">
-                  <span className={`inline-block px-2 py-0.5 rounded text-xs font-semibold ${
+                  <span className={`inline-block px-2 py-0.5 rounded text-sm font-semibold ${
                     row.status === 'Ready'
-                      ? 'bg-sage/20 text-sage'
+                      ? 'bg-success/20 text-success'
                       : row.status === 'Verify Plan'
-                      ? 'bg-gold/20 text-gold'
-                      : 'bg-cream/10 text-cream/60'
+                      ? 'bg-warning/20 text-warning'
+                      : 'bg-border text-text-secondary'
                   }`}>
                     {row.status}
                   </span>
@@ -44,7 +44,7 @@ export default function IntegrationTable() {
           </tbody>
         </table>
       </div>
-      <p className="text-center text-cream/40 text-xs mt-3">
+      <p className="text-center text-text-secondary text-sm mt-3">
         MCP = Model Context Protocol. Platforms with official MCPs have the smoothest integration path.
       </p>
     </div>

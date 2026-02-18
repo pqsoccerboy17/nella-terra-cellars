@@ -8,10 +8,7 @@ const NAV_LINKS = [
   { to: '/dashboard', label: 'Dashboard' },
 ]
 
-/**
- * Glassmorphic fixed header: transparent on top, blurred on scroll.
- * Mobile hamburger menu with AnimatePresence overlay.
- */
+/** Fixed header: transparent on top, blurred on scroll. Stays dark for Hero page. */
 export default function Header() {
   const { pathname } = useLocation()
   const [scrolled, setScrolled] = useState(false)
@@ -46,12 +43,12 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-charcoal/90 backdrop-blur-xl border-b border-oak/20'
+            ? 'bg-charcoal/90 backdrop-blur-xl border-b border-white/10'
             : 'bg-transparent'
         }`}
       >
         <div className="max-w-6xl mx-auto flex items-center justify-between px-6 h-16">
-          <Link to="/" className="font-display text-lg text-cream font-bold tracking-wide">
+          <Link to="/" className="text-lg text-white font-bold tracking-wide">
             Nella Terra Cellars
           </Link>
 
@@ -61,18 +58,18 @@ export default function Header() {
               const isActive = pathname === link.to
               return (
                 <span key={link.to} className="flex items-center">
-                  {i > 0 && <span className="w-px h-4 bg-cream/20 mx-3" />}
+                  {i > 0 && <span className="w-px h-4 bg-white/20 mx-3" />}
                   <Link
                     to={link.to}
                     className={`relative text-sm transition-colors pb-1 ${
                       isActive
-                        ? 'text-cream font-semibold'
-                        : 'text-cream/70 hover:text-cream'
+                        ? 'text-white font-semibold'
+                        : 'text-white/70 hover:text-white'
                     }`}
                   >
                     {link.label}
                     {isActive && (
-                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gold rounded-full" />
+                      <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full" />
                     )}
                   </Link>
                 </span>
@@ -83,7 +80,7 @@ export default function Header() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-3 text-cream/70 hover:text-cream"
+            className="md:hidden p-3 text-white/70 hover:text-white"
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
           >
@@ -143,8 +140,8 @@ export default function Header() {
                     to={link.to}
                     className={`text-xl transition-colors ${
                       isActive
-                        ? 'text-cream font-semibold'
-                        : 'text-cream/60 hover:text-cream'
+                        ? 'text-white font-semibold'
+                        : 'text-white/60 hover:text-white'
                     }`}
                   >
                     {link.label}
@@ -153,7 +150,7 @@ export default function Header() {
               })}
               <Link
                 to="/architecture"
-                className="mt-4 inline-block bg-wine hover:bg-wine-dark text-cream px-8 py-3 rounded-lg font-semibold transition-colors"
+                className="mt-4 inline-block bg-accent hover:bg-accent-dark text-white px-8 py-3 rounded-lg font-semibold transition-colors"
               >
                 Explore Docs
               </Link>

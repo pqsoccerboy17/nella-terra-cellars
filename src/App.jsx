@@ -17,7 +17,7 @@ export default function App() {
 
   if (isHome) {
     return (
-      <div className="min-h-screen bg-cream">
+      <div className="min-h-screen bg-surface">
         <Header />
         <ScrollToTop />
         <AnimatePresence mode="wait">

@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import GradientText from '../shared/GradientText'
 import PageTransition from '../shared/PageTransition'
 
 export default function Hero() {
@@ -22,7 +21,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="section-label-light"
+            className="block text-sm font-bold uppercase tracking-[0.1em] text-white/70 mb-3"
           >
             Automated Revenue Operations
           </motion.span>
@@ -31,20 +30,18 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="font-display text-4xl md:text-6xl text-cream font-bold leading-tight mb-6"
+            className="text-4xl md:text-[53px] text-white font-bold leading-tight mb-6"
           >
             Four platforms. One&nbsp;agent.
             <br />
-            <GradientText as="span" className="text-4xl md:text-6xl font-display font-bold">
-              Zero manual exports.
-            </GradientText>
+            <span className="text-accent-light">Zero manual exports.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="text-lg md:text-xl text-cream/80 max-w-2xl mx-auto mb-10"
+            className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10"
           >
             Claude Code orchestrates MCP servers across Commerce7, Tock, Square,
             and VinoShipper — pulling, normalizing, and categorizing revenue data
@@ -63,7 +60,7 @@ export default function Hero() {
             >
               <Link
                 to="/architecture"
-                className="inline-block bg-wine hover:bg-wine-dark text-cream px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
+                className="inline-block bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
               >
                 Explore the Architecture
               </Link>

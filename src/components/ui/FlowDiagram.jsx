@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion'
 
 const PLATFORMS = [
-  { name: 'Commerce7', color: '#4F46E5' },
-  { name: 'Tock', color: '#059669' },
-  { name: 'Square', color: '#000000' },
-  { name: 'VinoShipper', color: '#9333EA' },
+  { name: 'Commerce7', opacity: 1 },
+  { name: 'Tock', opacity: 0.8 },
+  { name: 'Square', opacity: 0.65 },
+  { name: 'VinoShipper', opacity: 0.5 },
 ]
 
 const OUTPUTS = [
-  { name: 'Google Sheets', color: '#0F9D58' },
-  { name: 'QuickBooks', color: '#2CA01C' },
+  { name: 'Google Sheets' },
+  { name: 'QuickBooks' },
 ]
 
 const ease = [0.25, 0.46, 0.45, 0.94]
@@ -28,11 +28,11 @@ export default function FlowDiagram() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: i * 0.1, ease }}
           >
-            <rect x="10" y={y} width="160" height="42" rx="8" fill={p.color} opacity="0.9" />
+            <rect x="10" y={y} width="160" height="42" rx="8" fill="#8B4049" opacity={p.opacity} />
             <text x="90" y={y + 26} textAnchor="middle" fill="white" fontSize="13" fontWeight="600" fontFamily="DM Sans, sans-serif">
               {p.name}
             </text>
-            <line x1="175" y1={y + 21} x2="295" y2="125" stroke="#C4A882" strokeWidth="1.5" opacity="0.5" />
+            <line x1="175" y1={y + 21} x2="295" y2="125" stroke="#E8E4DE" strokeWidth="1.5" opacity="0.6" />
           </motion.g>
         )
       })}
@@ -45,11 +45,11 @@ export default function FlowDiagram() {
         transition={{ duration: 0.7, delay: 0.3, ease }}
         style={{ transformOrigin: '400px 125px' }}
       >
-        <rect x="295" y="85" width="210" height="80" rx="12" fill="#722F37" />
-        <text x="400" y="118" textAnchor="middle" fill="#F9F5EE" fontSize="14" fontWeight="700" fontFamily="DM Sans, sans-serif">
+        <rect x="295" y="85" width="210" height="80" rx="12" fill="#8B4049" />
+        <text x="400" y="118" textAnchor="middle" fill="white" fontSize="14" fontWeight="700" fontFamily="DM Sans, sans-serif">
           Automation Layer
         </text>
-        <text x="400" y="140" textAnchor="middle" fill="#F9F5EE" fontSize="11" opacity="0.7" fontFamily="DM Sans, sans-serif">
+        <text x="400" y="140" textAnchor="middle" fill="white" fontSize="11" opacity="0.7" fontFamily="DM Sans, sans-serif">
           Nightly sync + categorize
         </text>
       </motion.g>
@@ -65,8 +65,8 @@ export default function FlowDiagram() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 + i * 0.1, ease }}
           >
-            <line x1="510" y1="125" x2="600" y2={y + 21} stroke="#C4A882" strokeWidth="1.5" opacity="0.5" />
-            <rect x="600" y={y} width="180" height="42" rx="8" fill={o.color} opacity="0.9" />
+            <line x1="510" y1="125" x2="600" y2={y + 21} stroke="#E8E4DE" strokeWidth="1.5" opacity="0.6" />
+            <rect x="600" y={y} width="180" height="42" rx="8" fill="#6B8F6F" opacity="0.9" />
             <text x="690" y={y + 26} textAnchor="middle" fill="white" fontSize="13" fontWeight="600" fontFamily="DM Sans, sans-serif">
               {o.name}
             </text>
@@ -75,9 +75,9 @@ export default function FlowDiagram() {
       })}
 
       {/* Arrow indicators */}
-      <polygon points="290,122 300,118 300,126" fill="#C4A882" opacity="0.7" />
-      <polygon points="596,86 606,82 606,90" fill="#C4A882" opacity="0.7" />
-      <polygon points="596,166 606,162 606,170" fill="#C4A882" opacity="0.7" />
+      <polygon points="290,122 300,118 300,126" fill="#E8E4DE" opacity="0.7" />
+      <polygon points="596,86 606,82 606,90" fill="#E8E4DE" opacity="0.7" />
+      <polygon points="596,166 606,162 606,170" fill="#E8E4DE" opacity="0.7" />
     </svg>
   )
 }

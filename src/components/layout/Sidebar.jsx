@@ -34,7 +34,7 @@ export default function Sidebar({ open, onClose }) {
     <nav className="py-6 px-4">
       {docsNav.map((section) => (
         <div key={section.label} className="mb-6">
-          <p className="text-xs font-semibold text-gold uppercase tracking-wider mb-2 px-3">
+          <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-2 px-3">
             {section.label}
           </p>
           <ul className="space-y-0.5">
@@ -46,8 +46,8 @@ export default function Sidebar({ open, onClose }) {
                     to={item.path}
                     className={`block px-3 py-2 rounded-md text-sm transition-colors ${
                       isActive
-                        ? 'bg-wine/20 text-cream font-semibold border-l-2 border-wine'
-                        : 'text-cream/60 hover:text-cream hover:bg-cream/5'
+                        ? 'bg-accent-light text-accent font-semibold border-l-2 border-accent'
+                        : 'text-text-secondary hover:text-text hover:bg-surface'
                     }`}
                   >
                     {item.label}
@@ -64,7 +64,7 @@ export default function Sidebar({ open, onClose }) {
   return (
     <>
       {/* Desktop sidebar — always visible on lg+ */}
-      <aside className="hidden lg:block fixed top-16 left-0 w-64 h-[calc(100vh-4rem)] bg-charcoal border-r border-cream/10 overflow-y-auto">
+      <aside className="hidden lg:block fixed top-16 left-0 w-64 h-[calc(100vh-4rem)] bg-surface-alt border-r border-border overflow-y-auto">
         {sidebarContent}
       </aside>
 
@@ -76,7 +76,7 @@ export default function Sidebar({ open, onClose }) {
             onClick={onClose}
             aria-hidden="true"
           />
-          <aside className="relative w-64 h-full bg-charcoal border-r border-cream/10 overflow-y-auto pt-16">
+          <aside className="relative w-64 h-full bg-surface-alt border-r border-border overflow-y-auto pt-16">
             {sidebarContent}
           </aside>
         </div>

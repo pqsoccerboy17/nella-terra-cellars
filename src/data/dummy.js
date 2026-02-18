@@ -40,7 +40,7 @@ export const qbCategories = [
 export const platforms = [
   {
     name: 'Commerce7',
-    color: '#4F46E5',
+    color: '#8B4049',
     metrics: [
       { label: 'Club Members', value: '187' },
       { label: 'Avg LTV', value: '$2,840' },
@@ -50,7 +50,7 @@ export const platforms = [
   },
   {
     name: 'Tock',
-    color: '#059669',
+    color: '#A85A62',
     metrics: [
       { label: 'Tastings Booked', value: '94' },
       { label: 'Avg Ticket', value: '$68' },
@@ -60,7 +60,7 @@ export const platforms = [
   },
   {
     name: 'Square',
-    color: '#000000',
+    color: '#B87078',
     metrics: [
       { label: 'Transactions', value: '312' },
       { label: 'Avg Sale', value: '$47' },
@@ -70,7 +70,7 @@ export const platforms = [
   },
   {
     name: 'VinoShipper',
-    color: '#9333EA',
+    color: '#C4878E',
     metrics: [
       { label: 'Orders', value: '43' },
       { label: 'States', value: '11' },

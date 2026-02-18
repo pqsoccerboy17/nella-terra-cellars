@@ -85,8 +85,8 @@ export default function Integrations() {
   return (
     <>
       <AnimatedSection>
-        <span className="section-label-light">Platform Layer</span>
-        <h1 className="font-display text-3xl md:text-5xl font-bold text-cream mb-4">Platform Integrations</h1>
+        <span className="section-label">Platform Layer</span>
+        <h1 className="text-4xl md:text-[53px] font-bold text-text mb-4">Platform Integrations</h1>
         <p>
           Each platform connects through its own MCP server — a thin wrapper that converts REST API calls into Claude Code tool invocations. One server per platform, read-only credentials, standardized tool interface.
         </p>
@@ -104,23 +104,23 @@ export default function Integrations() {
               <div className="mb-6">
                 <PlatformCard {...platform} />
               </div>
-              <div className="glass-dark p-4 rounded-lg mb-4">
-                <div className="grid grid-cols-2 gap-3 text-sm">
+              <div className="card-muted p-4 rounded-lg mb-4">
+                <div className="grid grid-cols-2 gap-3 text-base">
                   <div>
-                    <p className="text-cream/50 text-xs uppercase tracking-wider">API</p>
-                    <p className="text-cream">{detail.api}</p>
+                    <p className="text-text-secondary text-sm uppercase tracking-wider">API</p>
+                    <p className="text-text">{detail.api}</p>
                   </div>
                   <div>
-                    <p className="text-cream/50 text-xs uppercase tracking-wider">Auth</p>
-                    <p className="text-cream">{detail.auth}</p>
+                    <p className="text-text-secondary text-sm uppercase tracking-wider">Auth</p>
+                    <p className="text-text">{detail.auth}</p>
                   </div>
                   <div>
-                    <p className="text-cream/50 text-xs uppercase tracking-wider">Rate Limit</p>
-                    <p className="text-cream">{detail.rate}</p>
+                    <p className="text-text-secondary text-sm uppercase tracking-wider">Rate Limit</p>
+                    <p className="text-text">{detail.rate}</p>
                   </div>
                   <div>
-                    <p className="text-cream/50 text-xs uppercase tracking-wider">Data</p>
-                    <p className="text-cream">{detail.data}</p>
+                    <p className="text-text-secondary text-sm uppercase tracking-wider">Data</p>
+                    <p className="text-text">{detail.data}</p>
                   </div>
                 </div>
               </div>
@@ -148,10 +148,10 @@ export default function Integrations() {
         <div key={op.id}>
           <SectionHeading id={op.id}>{op.name}</SectionHeading>
           <AnimatedDiv>
-            <div className="glass-dark p-4 rounded-lg mb-4">
-              <div className="text-sm">
-                <p className="text-cream/50 text-xs uppercase tracking-wider">Auth</p>
-                <p className="text-cream">{op.auth}</p>
+            <div className="card-muted p-4 rounded-lg mb-4">
+              <div className="text-base">
+                <p className="text-text-secondary text-sm uppercase tracking-wider">Auth</p>
+                <p className="text-text">{op.auth}</p>
               </div>
             </div>
             {op.notes && <p>{op.notes}</p>}

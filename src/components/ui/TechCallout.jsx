@@ -1,28 +1,22 @@
-/** Styled callout block — 4 variants: info (sage), warning (gold), detail (wine), code (charcoal). */
+/** Styled callout block — 3 variants: info (success), warning (warning), detail (accent). */
 const VARIANTS = {
   info: {
-    border: 'border-sage/40',
-    bg: 'bg-sage/10',
-    icon: 'text-sage',
+    border: 'border-success/40',
+    bg: 'bg-success/10',
+    icon: 'text-success',
     iconPath: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
   },
   warning: {
-    border: 'border-gold/40',
-    bg: 'bg-gold/10',
-    icon: 'text-gold',
+    border: 'border-warning/40',
+    bg: 'bg-warning/10',
+    icon: 'text-warning',
     iconPath: 'M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4.5c-.77-.833-2.694-.833-3.464 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z',
   },
   detail: {
-    border: 'border-wine/40',
-    bg: 'bg-wine/10',
-    icon: 'text-wine-light',
+    border: 'border-accent/40',
+    bg: 'bg-accent-light',
+    icon: 'text-accent',
     iconPath: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2',
-  },
-  code: {
-    border: 'border-cream/10',
-    bg: 'bg-charcoal',
-    icon: 'text-cream/60',
-    iconPath: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
   },
 }
 
@@ -36,8 +30,8 @@ export default function TechCallout({ variant = 'info', title, children }) {
           <path strokeLinecap="round" strokeLinejoin="round" d={v.iconPath} />
         </svg>
         <div>
-          {title && <p className="font-semibold text-cream mb-1">{title}</p>}
-          <div className="docs-prose text-sm">{children}</div>
+          {title && <p className="font-semibold text-text mb-1">{title}</p>}
+          <div className="docs-prose text-base">{children}</div>
         </div>
       </div>
     </div>

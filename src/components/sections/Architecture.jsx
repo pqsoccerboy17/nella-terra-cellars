@@ -18,8 +18,8 @@ export default function Architecture() {
   return (
     <>
       <AnimatedSection>
-        <span className="section-label-light">Overview</span>
-        <h1 className="font-display text-3xl md:text-5xl font-bold text-cream mb-4">System Architecture</h1>
+        <span className="section-label">Overview</span>
+        <h1 className="text-4xl md:text-[53px] font-bold text-text mb-4">System Architecture</h1>
         <p>
           Nella Terra's revenue automation connects four wine industry platforms through Model Context Protocol (MCP) servers, orchestrated by Claude Code running in headless mode. Data flows through a normalize-categorize-reconcile pipeline every night, producing QuickBooks-ready reports in Google Sheets.
         </p>
@@ -37,32 +37,32 @@ export default function Architecture() {
       <AnimatedDiv>
         <div className="grid md:grid-cols-2 gap-6 my-6">
           {/* Platform layer */}
-          <div className="glass-dark p-5 rounded-lg">
-            <p className="text-xs font-semibold text-gold uppercase tracking-wider mb-3">Platform Layer</p>
+          <div className="card-muted p-5 rounded-lg">
+            <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-3">Platform Layer</p>
             <div className="space-y-3">
               {techStack.platform.map(t => (
                 <div key={t.name} className="flex justify-between items-start">
                   <div>
-                    <p className="text-cream font-semibold text-sm">{t.name}</p>
-                    <p className="text-cream/60 text-xs">{t.role}</p>
+                    <p className="text-text font-semibold text-base">{t.name}</p>
+                    <p className="text-text-secondary text-sm">{t.role}</p>
                   </div>
-                  <span className="text-cream/40 text-xs shrink-0 ml-4">{t.api} / {t.auth}</span>
+                  <span className="text-text-secondary text-sm shrink-0 ml-4">{t.api} / {t.auth}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Automation layer */}
-          <div className="glass-dark p-5 rounded-lg">
-            <p className="text-xs font-semibold text-gold uppercase tracking-wider mb-3">Automation Layer</p>
+          <div className="card-muted p-5 rounded-lg">
+            <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-3">Automation Layer</p>
             <div className="space-y-3">
               {techStack.automation.map(t => (
                 <div key={t.name} className="flex justify-between items-start">
                   <div>
-                    <p className="text-cream font-semibold text-sm">{t.name}</p>
-                    <p className="text-cream/60 text-xs">{t.role}</p>
+                    <p className="text-text font-semibold text-base">{t.name}</p>
+                    <p className="text-text-secondary text-sm">{t.role}</p>
                   </div>
-                  <span className="text-cream/40 text-xs shrink-0 ml-4">{t.version}</span>
+                  <span className="text-text-secondary text-sm shrink-0 ml-4">{t.version}</span>
                 </div>
               ))}
             </div>
@@ -70,16 +70,16 @@ export default function Architecture() {
         </div>
 
         {/* Output layer */}
-        <div className="glass-dark p-5 rounded-lg max-w-md">
-          <p className="text-xs font-semibold text-gold uppercase tracking-wider mb-3">Output Layer</p>
+        <div className="card-muted p-5 rounded-lg max-w-md">
+          <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-3">Output Layer</p>
           <div className="space-y-3">
             {techStack.output.map(t => (
               <div key={t.name} className="flex justify-between items-start">
                 <div>
-                  <p className="text-cream font-semibold text-sm">{t.name}</p>
-                  <p className="text-cream/60 text-xs">{t.role}</p>
+                  <p className="text-text font-semibold text-base">{t.name}</p>
+                  <p className="text-text-secondary text-sm">{t.role}</p>
                 </div>
-                <span className="text-cream/40 text-xs shrink-0 ml-4">{t.auth}</span>
+                <span className="text-text-secondary text-sm shrink-0 ml-4">{t.auth}</span>
               </div>
             ))}
           </div>
@@ -90,9 +90,9 @@ export default function Architecture() {
       <AnimatedDiv>
         <div className="space-y-4 my-4">
           {designPatterns.map((p) => (
-            <div key={p.name} className="glass-dark p-4 rounded-lg">
-              <p className="text-cream font-semibold text-sm mb-1">{p.name}</p>
-              <p className="text-cream/70 text-sm">{p.description}</p>
+            <div key={p.name} className="card-muted p-4 rounded-lg">
+              <p className="text-text font-semibold text-base mb-1">{p.name}</p>
+              <p className="text-text-secondary text-base">{p.description}</p>
             </div>
           ))}
         </div>

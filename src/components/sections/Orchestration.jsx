@@ -18,8 +18,8 @@ export default function Orchestration() {
   return (
     <>
       <AnimatedSection>
-        <span className="section-label-light">Automation Layer</span>
-        <h1 className="font-display text-3xl md:text-5xl font-bold text-cream mb-4">Claude Code + Cowork</h1>
+        <span className="section-label">Automation Layer</span>
+        <h1 className="text-4xl md:text-[53px] font-bold text-text mb-4">Claude Code + Cowork</h1>
         <p>
           The automation layer uses Claude Code in headless mode as the orchestration engine. A single main agent coordinates four parallel Cowork sub-agents — one per platform — then aggregates results through the normalize-categorize-reconcile pipeline.
         </p>
@@ -51,25 +51,25 @@ export default function Orchestration() {
         <CodeBlock {...coworkConfig} />
 
         <div className="grid md:grid-cols-2 gap-4 my-6">
-          <div className="glass-dark p-5 rounded-lg">
-            <p className="text-cream font-semibold mb-2">Sequential (without Cowork)</p>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between"><span className="text-cream/60">Commerce7</span><span className="text-cream">~30s</span></div>
-              <div className="flex justify-between"><span className="text-cream/60">Tock</span><span className="text-cream">~25s</span></div>
-              <div className="flex justify-between"><span className="text-cream/60">Square</span><span className="text-cream">~30s</span></div>
-              <div className="flex justify-between"><span className="text-cream/60">VinoShipper</span><span className="text-cream">~20s</span></div>
+          <div className="card-muted p-5 rounded-lg">
+            <p className="text-text font-semibold mb-2">Sequential (without Cowork)</p>
+            <div className="space-y-2 text-base">
+              <div className="flex justify-between"><span className="text-text-secondary">Commerce7</span><span className="text-text">~30s</span></div>
+              <div className="flex justify-between"><span className="text-text-secondary">Tock</span><span className="text-text">~25s</span></div>
+              <div className="flex justify-between"><span className="text-text-secondary">Square</span><span className="text-text">~30s</span></div>
+              <div className="flex justify-between"><span className="text-text-secondary">VinoShipper</span><span className="text-text">~20s</span></div>
               <hr className="docs-divider" />
-              <div className="flex justify-between font-semibold"><span className="text-cream/60">Total</span><span className="text-wine-light">~105s</span></div>
+              <div className="flex justify-between font-semibold"><span className="text-text-secondary">Total</span><span className="text-accent">~105s</span></div>
             </div>
           </div>
-          <div className="glass-dark p-5 rounded-lg">
-            <p className="text-cream font-semibold mb-2">Parallel (with Cowork)</p>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between"><span className="text-cream/60">All 4 platforms</span><span className="text-cream">simultaneously</span></div>
-              <div className="flex justify-between"><span className="text-cream/60">Bottleneck</span><span className="text-cream">Commerce7 (~30s)</span></div>
-              <div className="flex justify-between"><span className="text-cream/60">Overhead</span><span className="text-cream">~5s</span></div>
+          <div className="card-muted p-5 rounded-lg">
+            <p className="text-text font-semibold mb-2">Parallel (with Cowork)</p>
+            <div className="space-y-2 text-base">
+              <div className="flex justify-between"><span className="text-text-secondary">All 4 platforms</span><span className="text-text">simultaneously</span></div>
+              <div className="flex justify-between"><span className="text-text-secondary">Bottleneck</span><span className="text-text">Commerce7 (~30s)</span></div>
+              <div className="flex justify-between"><span className="text-text-secondary">Overhead</span><span className="text-text">~5s</span></div>
               <hr className="docs-divider" />
-              <div className="flex justify-between font-semibold"><span className="text-cream/60">Total</span><span className="text-sage">~35s</span></div>
+              <div className="flex justify-between font-semibold"><span className="text-text-secondary">Total</span><span className="text-success">~35s</span></div>
             </div>
           </div>
         </div>
@@ -110,9 +110,9 @@ export default function Orchestration() {
             { scenario: 'Google Sheets write failure', response: 'Retry once. If still failing, write output to local JSON file as backup. Email alert.' },
             { scenario: 'Reconciliation imbalance', response: 'Sum validation fails. Agent writes report with discrepancy amount. Flagged for manual review.' },
           ].map((item) => (
-            <div key={item.scenario} className="glass-dark p-4 rounded-lg">
-              <p className="text-cream font-semibold text-sm">{item.scenario}</p>
-              <p className="text-cream/70 text-sm mt-1">{item.response}</p>
+            <div key={item.scenario} className="card-muted p-4 rounded-lg">
+              <p className="text-text font-semibold text-base">{item.scenario}</p>
+              <p className="text-text-secondary text-base mt-1">{item.response}</p>
             </div>
           ))}
         </div>

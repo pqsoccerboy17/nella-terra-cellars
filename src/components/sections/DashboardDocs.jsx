@@ -14,8 +14,8 @@ export default function DashboardDocs() {
   return (
     <>
       <AnimatedSection>
-        <span className="section-label-light">Output</span>
-        <h1 className="font-display text-3xl md:text-5xl font-bold text-cream mb-4">Live Demo Dashboard</h1>
+        <span className="section-label">Output</span>
+        <h1 className="text-4xl md:text-[53px] font-bold text-text mb-4">Live Demo Dashboard</h1>
         <p>
           The dashboard below shows what Nella Terra's unified revenue view looks like after the automation pipeline runs. All four platforms' data is merged, categorized, and displayed in a single interactive view.
         </p>
@@ -30,17 +30,17 @@ export default function DashboardDocs() {
         </TechCallout>
 
         <div className="grid md:grid-cols-3 gap-4 my-6">
-          <div className="glass-dark p-4 rounded-lg text-center">
-            <p className="text-cream/50 text-xs uppercase tracking-wider mb-1">Data Sources</p>
-            <p className="text-cream font-semibold text-lg">4 platforms</p>
+          <div className="card-muted p-4 rounded-lg text-center">
+            <p className="text-text-secondary text-sm uppercase tracking-wider mb-1">Data Sources</p>
+            <p className="text-text font-semibold text-lg">4 platforms</p>
           </div>
-          <div className="glass-dark p-4 rounded-lg text-center">
-            <p className="text-cream/50 text-xs uppercase tracking-wider mb-1">Update Frequency</p>
-            <p className="text-cream font-semibold text-lg">Daily at 6:15 AM</p>
+          <div className="card-muted p-4 rounded-lg text-center">
+            <p className="text-text-secondary text-sm uppercase tracking-wider mb-1">Update Frequency</p>
+            <p className="text-text font-semibold text-lg">Daily at 6:15 AM</p>
           </div>
-          <div className="glass-dark p-4 rounded-lg text-center">
-            <p className="text-cream/50 text-xs uppercase tracking-wider mb-1">Latency</p>
-            <p className="text-cream font-semibold text-lg">~35 seconds</p>
+          <div className="card-muted p-4 rounded-lg text-center">
+            <p className="text-text-secondary text-sm uppercase tracking-wider mb-1">Latency</p>
+            <p className="text-text font-semibold text-lg">~35 seconds</p>
           </div>
         </div>
       </AnimatedDiv>
@@ -50,7 +50,7 @@ export default function DashboardDocs() {
         <p className="mb-6">Interactive dashboard with month tabs, revenue chart, QuickBooks categories, and wine sales detail. All data comes from the automation pipeline's output.</p>
       </AnimatedDiv>
 
-      {/* Embedded Dashboard — render directly, bypassing DocsLayout prose for cream bg */}
+      {/* Embedded Dashboard */}
       <div className="-mx-6 lg:-mx-6">
         <Dashboard embedded />
       </div>
@@ -66,10 +66,10 @@ export default function DashboardDocs() {
             { platform: 'Tock', time: '6:04 AM', status: 'Fresh' },
             { platform: 'VinoShipper', time: '6:05 AM', status: 'Fresh' },
           ].map(item => (
-            <div key={item.platform} className="flex items-center justify-between glass-dark px-4 py-2 rounded-lg text-sm">
-              <span className="text-cream font-semibold">{item.platform}</span>
-              <span className="text-cream/50">{item.time}</span>
-              <span className="text-sage font-semibold text-xs">{item.status}</span>
+            <div key={item.platform} className="flex items-center justify-between card-muted px-4 py-2 rounded-lg text-base">
+              <span className="text-text font-semibold">{item.platform}</span>
+              <span className="text-text-secondary">{item.time}</span>
+              <span className="text-success font-semibold text-sm">{item.status}</span>
             </div>
           ))}
         </div>

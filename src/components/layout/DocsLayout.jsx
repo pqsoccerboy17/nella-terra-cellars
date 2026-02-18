@@ -3,13 +3,13 @@ import DocsHeader from './DocsHeader'
 import Sidebar from './Sidebar'
 import ScrollToTop from '../shared/ScrollToTop'
 
-/** Sidebar + main content wrapper for all docs pages. Charcoal bg, pt-16 for header offset. */
+/** Sidebar + main content wrapper for all docs pages. Light bg, pt-16 for header offset. */
 export default function DocsLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const closeSidebar = useCallback(() => setSidebarOpen(false), [])
 
   return (
-    <div className="min-h-screen bg-charcoal">
+    <div className="min-h-screen bg-surface">
       <DocsHeader onToggleSidebar={() => setSidebarOpen(prev => !prev)} />
       <Sidebar open={sidebarOpen} onClose={closeSidebar} />
       <ScrollToTop />

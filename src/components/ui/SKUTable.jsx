@@ -29,15 +29,15 @@ export default function SKUTable({ wines }) {
   }
 
   return (
-    <div className="glass overflow-x-auto">
-      <table className="w-full text-sm">
+    <div className="card overflow-x-auto">
+      <table className="w-full text-base">
         <thead>
-          <tr className="border-b border-oak/30">
+          <tr className="border-b border-border">
             {COLUMNS.map((col) => (
               <th
                 key={col.key}
                 onClick={() => handleSort(col.key)}
-                className="px-4 py-3 text-left font-semibold text-cork cursor-pointer hover:text-slate select-none"
+                className="px-4 py-3 text-left font-semibold text-text-secondary cursor-pointer hover:text-text select-none"
               >
                 {col.label}
                 {sortKey === col.key && (
@@ -49,12 +49,12 @@ export default function SKUTable({ wines }) {
         </thead>
         <tbody>
           {sorted.map((wine) => (
-            <tr key={wine.name} className="border-b border-oak/15 hover:bg-parchment/50">
-              <td className="px-4 py-3 font-semibold text-slate">{wine.name}</td>
-              <td className="px-4 py-3 text-cork">{wine.category}</td>
-              <td className="px-4 py-3 text-slate">{wine.unitsSold}</td>
-              <td className="px-4 py-3 text-slate font-semibold">${wine.revenue.toLocaleString()}</td>
-              <td className="px-4 py-3 text-cork">{wine.channel}</td>
+            <tr key={wine.name} className="border-b border-border hover:bg-surface">
+              <td className="px-4 py-3 font-semibold text-text">{wine.name}</td>
+              <td className="px-4 py-3 text-text-secondary">{wine.category}</td>
+              <td className="px-4 py-3 text-text">{wine.unitsSold}</td>
+              <td className="px-4 py-3 text-text font-semibold">${wine.revenue.toLocaleString()}</td>
+              <td className="px-4 py-3 text-text-secondary">{wine.channel}</td>
             </tr>
           ))}
         </tbody>

@@ -1,17 +1,17 @@
 import { motion } from 'framer-motion'
 
 /**
- * Vertical pipeline SVG: Pull → Normalize → Categorize → Reconcile → Output.
- * Each stage animates in sequence on scroll.
+ * Vertical pipeline SVG: Pull -> Normalize -> Categorize -> Reconcile -> Output.
+ * Single accent at varying opacities, output stage uses success color.
  */
 const ease = [0.25, 0.46, 0.45, 0.94]
 
 const STAGES = [
-  { label: 'Pull', detail: '4 APIs via MCP servers', color: '#4F46E5', icon: '↓' },
-  { label: 'Normalize', detail: 'Common order schema', color: '#6B8F6F', icon: '⟳' },
-  { label: 'Categorize', detail: 'QB account mapping', color: '#B8963E', icon: '▦' },
-  { label: 'Reconcile', detail: 'Cross-platform dedup', color: '#722F37', icon: '⇄' },
-  { label: 'Output', detail: 'Sheets + QuickBooks', color: '#059669', icon: '✓' },
+  { label: 'Pull', detail: '4 APIs via MCP servers', opacity: 1, icon: '\u2193' },
+  { label: 'Normalize', detail: 'Common order schema', opacity: 0.85, icon: '\u27F3' },
+  { label: 'Categorize', detail: 'QB account mapping', opacity: 0.7, icon: '\u25A6' },
+  { label: 'Reconcile', detail: 'Cross-platform dedup', opacity: 0.55, icon: '\u21C4' },
+  { label: 'Output', detail: 'Sheets + QuickBooks', color: '#6B8F6F', icon: '\u2713' },
 ]
 
 export default function DiagramPipeline() {
@@ -24,6 +24,8 @@ export default function DiagramPipeline() {
     <svg viewBox={`0 0 500 ${totalHeight}`} className="w-full max-w-md mx-auto" aria-label="Data pipeline diagram showing 5 transformation stages">
       {STAGES.map((stage, i) => {
         const y = startY + i * (stageHeight + gap)
+        const fill = stage.color || '#8B4049'
+        const fillOpacity = stage.opacity || 0.9
         return (
           <motion.g
             key={stage.label}
@@ -33,7 +35,7 @@ export default function DiagramPipeline() {
             transition={{ duration: 0.5, delay: i * 0.15, ease }}
           >
             {/* Stage box */}
-            <rect x="60" y={y} width="380" height={stageHeight} rx="10" fill={stage.color} opacity="0.9" />
+            <rect x="60" y={y} width="380" height={stageHeight} rx="10" fill={fill} opacity={fillOpacity} />
 
             {/* Step number circle */}
             <circle cx="95" cy={y + stageHeight / 2} r="14" fill="rgba(255,255,255,0.2)" />
@@ -50,7 +52,7 @@ export default function DiagramPipeline() {
             {i < STAGES.length - 1 && (
               <motion.line
                 x1="250" y1={y + stageHeight} x2="250" y2={y + stageHeight + gap}
-                stroke="#C4A882" strokeWidth="2" strokeDasharray="4 3" opacity="0.4"
+                stroke="#E8E4DE" strokeWidth="2" strokeDasharray="4 3" opacity="0.6"
                 initial={{ pathLength: 0 }}
                 whileInView={{ pathLength: 1 }}
                 viewport={{ once: true }}

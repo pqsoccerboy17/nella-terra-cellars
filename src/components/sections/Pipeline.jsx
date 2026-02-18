@@ -18,8 +18,8 @@ export default function Pipeline() {
   return (
     <>
       <AnimatedSection>
-        <span className="section-label-light">Platform Layer</span>
-        <h1 className="font-display text-3xl md:text-5xl font-bold text-cream mb-4">Data Pipeline</h1>
+        <span className="section-label">Platform Layer</span>
+        <h1 className="text-4xl md:text-[53px] font-bold text-text mb-4">Data Pipeline</h1>
         <p>
           Raw API responses from four platforms with different schemas, currencies, and ID systems get transformed into a unified order format, categorized into QuickBooks accounts, deduplicated across overlapping platforms, and written to structured outputs.
         </p>
@@ -37,11 +37,11 @@ export default function Pipeline() {
       <AnimatedDiv>
         <p className="mb-4">Each platform returns data in its own schema. Commerce7 uses cents, Tock uses dollars, Square nests amounts inside <code>money</code> objects. The normalize stage converts every order into a common schema:</p>
 
-        <div className="glass-dark p-4 rounded-lg mb-6">
-          <p className="text-xs font-semibold text-gold uppercase tracking-wider mb-3">Common Order Schema</p>
-          <div className="text-sm text-cream/80 font-mono space-y-1">
+        <div className="card-muted p-4 rounded-lg mb-6">
+          <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-3">Common Order Schema</p>
+          <div className="text-base text-text font-mono space-y-1">
             <p>{'{ id, source, date, amount, channel, customer, items[] }'}</p>
-            <p className="text-cream/50">{'  items[]: { sku, name, qty, price }'}</p>
+            <p className="text-text-secondary">{'  items[]: { sku, name, qty, price }'}</p>
           </div>
         </div>
 
@@ -60,21 +60,21 @@ export default function Pipeline() {
       <AnimatedDiv>
         <p className="mb-4">Each normalized order gets mapped to a QuickBooks category and account code. Rules are evaluated in order — first match wins.</p>
 
-        <div className="overflow-x-auto rounded-xl border border-cream/10 mb-6">
-          <table className="w-full text-sm">
+        <div className="overflow-x-auto rounded-xl border border-border mb-6">
+          <table className="w-full text-base">
             <thead>
-              <tr className="border-b border-cream/10">
-                <th className="px-4 py-3 text-left font-semibold text-cream/70">Rule</th>
-                <th className="px-4 py-3 text-left font-semibold text-cream/70">QB Category</th>
-                <th className="px-4 py-3 text-left font-semibold text-cream/70">Account</th>
+              <tr className="border-b border-border">
+                <th className="px-4 py-3 text-left font-semibold text-text-secondary">Rule</th>
+                <th className="px-4 py-3 text-left font-semibold text-text-secondary">QB Category</th>
+                <th className="px-4 py-3 text-left font-semibold text-text-secondary">Account</th>
               </tr>
             </thead>
             <tbody>
               {qbCategoryRules.map((rule, i) => (
-                <tr key={i} className="border-b border-cream/5">
-                  <td className="px-4 py-3 font-mono text-sm text-gold">{rule.condition}</td>
-                  <td className="px-4 py-3 text-cream">{rule.category}</td>
-                  <td className="px-4 py-3 text-cream/70">{rule.account}</td>
+                <tr key={i} className="border-b border-border">
+                  <td className="px-4 py-3 font-mono text-base text-accent">{rule.condition}</td>
+                  <td className="px-4 py-3 text-text">{rule.category}</td>
+                  <td className="px-4 py-3 text-text-secondary">{rule.account}</td>
                 </tr>
               ))}
             </tbody>
@@ -116,15 +116,15 @@ export default function Pipeline() {
         <p className="mb-4">Reconciled, categorized orders get written to two destinations:</p>
 
         <div className="grid md:grid-cols-2 gap-4 my-6">
-          <div className="glass-dark p-5 rounded-lg">
-            <p className="text-cream font-semibold mb-2">Google Sheets</p>
-            <p className="text-cream/70 text-sm mb-3">One row per order, one sheet per month. Structured columns: date, source, channel, amount, QB category, account code.</p>
-            <p className="text-cream/50 text-xs">Appends new rows — never overwrites. Monthly sheet auto-created on first entry.</p>
+          <div className="card-muted p-5 rounded-lg">
+            <p className="text-text font-semibold mb-2">Google Sheets</p>
+            <p className="text-text-secondary text-base mb-3">One row per order, one sheet per month. Structured columns: date, source, channel, amount, QB category, account code.</p>
+            <p className="text-text-secondary text-sm">Appends new rows — never overwrites. Monthly sheet auto-created on first entry.</p>
           </div>
-          <div className="glass-dark p-5 rounded-lg">
-            <p className="text-cream font-semibold mb-2">QuickBooks Journal Entry</p>
-            <p className="text-cream/70 text-sm mb-3">Draft journal entry grouped by QB category. Debit revenue accounts, credit bank deposit. Ready for bookkeeper review.</p>
-            <p className="text-cream/50 text-xs">Phase 2 — initial deployment targets Sheets-only output.</p>
+          <div className="card-muted p-5 rounded-lg">
+            <p className="text-text font-semibold mb-2">QuickBooks Journal Entry</p>
+            <p className="text-text-secondary text-base mb-3">Draft journal entry grouped by QB category. Debit revenue accounts, credit bank deposit. Ready for bookkeeper review.</p>
+            <p className="text-text-secondary text-sm">Phase 2 — initial deployment targets Sheets-only output.</p>
           </div>
         </div>
       </AnimatedDiv>
