@@ -1,11 +1,12 @@
 /** Technical content data for docs pages — MCP configs, code snippets, field mappings. */
+import { getPlatformUrl } from './platform-links'
 
 export const techStack = {
   platform: [
-    { name: 'Commerce7', url: 'https://commerce7.com', role: 'Wine club, POS, e-commerce', api: 'REST', auth: 'Basic Auth' },
-    { name: 'Tock', url: 'https://www.exploretock.com', role: 'Reservations & experiences', api: 'REST', auth: 'API Key' },
-    { name: 'Square', url: 'https://squareup.com', role: 'Walk-in POS, retail, food', api: 'REST', auth: 'Access Token' },
-    { name: 'VinoShipper', url: 'https://vinoshipper.com', role: 'DTC compliance & shipping', api: 'REST', auth: 'API Key + Secret' },
+    { name: 'Commerce7', url: getPlatformUrl('Commerce7'), role: 'Wine club, POS, e-commerce', api: 'REST', auth: 'Basic Auth' },
+    { name: 'Tock', url: getPlatformUrl('Tock'), role: 'Reservations & experiences', api: 'REST', auth: 'API Key' },
+    { name: 'Square', url: getPlatformUrl('Square'), role: 'Walk-in POS, retail, food', api: 'REST', auth: 'Access Token' },
+    { name: 'VinoShipper', url: getPlatformUrl('VinoShipper'), role: 'DTC compliance & shipping', api: 'REST', auth: 'API Key + Secret' },
   ],
   automation: [
     { name: 'Claude Code', role: 'Headless agent loop — orchestrates all data pulls', version: 'Claude 4 Opus/Sonnet' },
@@ -14,8 +15,8 @@ export const techStack = {
     { name: 'Cron / LaunchAgent', role: 'Nightly trigger at 6:00 AM', version: 'macOS native' },
   ],
   output: [
-    { name: 'Google Sheets', url: 'https://sheets.google.com', role: 'Revenue report — one sheet per month', auth: 'Service Account' },
-    { name: 'QuickBooks Online', url: 'https://quickbooks.intuit.com', role: 'Journal entries with QB categories', auth: 'OAuth 2.0' },
+    { name: 'Google Sheets', url: getPlatformUrl('Google Sheets'), role: 'Revenue report — one sheet per month', auth: 'Service Account' },
+    { name: 'QuickBooks Online', url: getPlatformUrl('QuickBooks'), role: 'Journal entries with QB categories', auth: 'OAuth 2.0' },
   ],
 }
 

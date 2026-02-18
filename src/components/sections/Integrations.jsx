@@ -6,7 +6,6 @@ import TechCallout from '../ui/TechCallout'
 import CodeBlock from '../ui/CodeBlock'
 import IntegrationTable from '../ui/IntegrationTable'
 import PlatformCard from '../ui/PlatformCard'
-import ExternalLink from '../ui/ExternalLink'
 import { AnimatedSection, AnimatedDiv } from '../shared/AnimatedSection'
 
 const TOC = [
@@ -69,7 +68,6 @@ const OUTPUT_PLATFORMS = [
     id: 'google-sheets',
     mcpKey: 'googleSheets',
     name: 'Google Sheets',
-    url: 'https://sheets.google.com',
     auth: 'Service Account (no user OAuth)',
     notes: 'Official Google MCP server. Clean automation path — service account auth means no token refresh. One spreadsheet per month with structured rows: date, source, channel, amount, QB category.',
   },
@@ -77,7 +75,6 @@ const OUTPUT_PLATFORMS = [
     id: 'quickbooks',
     mcpKey: 'quickbooks',
     name: 'QuickBooks Online',
-    url: 'https://quickbooks.intuit.com',
     auth: 'OAuth 2.0 (refresh token lifecycle)',
     notes: null,
     warning: 'QuickBooks OAuth requires token refresh every 100 days. The Intuit MCP server is in preview — token lifecycle management adds operational complexity. Initial implementation targets Sheets-only output, with QB journal entry drafts as phase 2.',
@@ -104,11 +101,6 @@ export default function Integrations() {
           <div key={detail.id}>
             <SectionHeading id={detail.id}>{platform.name}</SectionHeading>
             <AnimatedDiv>
-              {platform.url && (
-                <p className="text-sm mb-4">
-                  <ExternalLink href={platform.url}>Visit {platform.name} website</ExternalLink>
-                </p>
-              )}
               <div className="mb-6">
                 <PlatformCard {...platform} />
               </div>
@@ -156,11 +148,6 @@ export default function Integrations() {
         <div key={op.id}>
           <SectionHeading id={op.id}>{op.name}</SectionHeading>
           <AnimatedDiv>
-            {op.url && (
-              <p className="text-sm mb-4">
-                <ExternalLink href={op.url}>Visit {op.name} website</ExternalLink>
-              </p>
-            )}
             <div className="card-muted p-4 rounded-lg mb-4">
               <div className="text-base">
                 <p className="text-text-secondary text-sm uppercase tracking-wider">Auth</p>

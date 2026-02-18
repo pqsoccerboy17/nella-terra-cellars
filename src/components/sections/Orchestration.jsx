@@ -1,9 +1,10 @@
+import { motion } from 'framer-motion'
 import SectionHeading from '../ui/SectionHeading'
 import TableOfContents from '../ui/TableOfContents'
 import TechCallout from '../ui/TechCallout'
 import CodeBlock from '../ui/CodeBlock'
 import DiagramOrchestration from '../ui/DiagramOrchestration'
-import { AnimatedSection, AnimatedDiv } from '../shared/AnimatedSection'
+import { AnimatedSection, AnimatedDiv, AnimatedSlideIn } from '../shared/AnimatedSection'
 import { agentPseudocode, coworkConfig } from '../../data/docs-content'
 
 const TOC = [
@@ -28,10 +29,10 @@ export default function Orchestration() {
       <TableOfContents items={TOC} />
 
       <SectionHeading id="orchestration-diagram">Orchestration Diagram</SectionHeading>
-      <AnimatedDiv>
+      <AnimatedSlideIn direction="left">
         <p className="mb-6">The full execution topology. Cron triggers the main agent, which spawns four Cowork sub-agents in parallel. After all four complete, the main agent aggregates and processes the results.</p>
         <DiagramOrchestration />
-      </AnimatedDiv>
+      </AnimatedSlideIn>
 
       <SectionHeading id="agent-loop">Agent Loop</SectionHeading>
       <AnimatedDiv>
@@ -110,10 +111,15 @@ export default function Orchestration() {
             { scenario: 'Google Sheets write failure', response: 'Retry once. If still failing, write output to local JSON file as backup. Email alert.' },
             { scenario: 'Reconciliation imbalance', response: 'Sum validation fails. Agent writes report with discrepancy amount. Flagged for manual review.' },
           ].map((item) => (
-            <div key={item.scenario} className="card-muted p-4 rounded-lg">
+            <motion.div
+              key={item.scenario}
+              className="card-muted p-4 rounded-lg"
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.2 }}
+            >
               <p className="text-text font-semibold text-base">{item.scenario}</p>
               <p className="text-text-secondary text-base mt-1">{item.response}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
 

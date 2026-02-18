@@ -1,15 +1,16 @@
 import { motion } from 'framer-motion'
+import { getPlatformUrl } from '../../data/platform-links'
 
 const PLATFORMS = [
-  { name: 'Commerce7', color: '#8B4049', url: 'https://commerce7.com' },
-  { name: 'Tock', color: '#2D2D2D', url: 'https://www.exploretock.com' },
-  { name: 'Square', color: '#4A7EC4', url: 'https://squareup.com' },
-  { name: 'VinoShipper', color: '#6B2D5B', url: 'https://vinoshipper.com' },
+  { name: 'Commerce7', color: '#8B4049' },
+  { name: 'Tock', color: '#2D2D2D' },
+  { name: 'Square', color: '#4A7EC4' },
+  { name: 'VinoShipper', color: '#6B2D5B' },
 ]
 
 const OUTPUTS = [
-  { name: 'Google Sheets', url: 'https://sheets.google.com' },
-  { name: 'QuickBooks', url: 'https://quickbooks.intuit.com' },
+  { name: 'Google Sheets' },
+  { name: 'QuickBooks' },
 ]
 
 const ease = [0.25, 0.46, 0.45, 0.94]
@@ -20,9 +21,11 @@ export default function FlowDiagram() {
       {/* SVG glow filter */}
       <defs>
         <filter id="glow-flow" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feGaussianBlur stdDeviation="4" result="blur" />
+          <feFlood floodColor="var(--color-accent)" floodOpacity="0.15" result="color" />
+          <feComposite in="color" in2="blur" operator="in" result="coloredBlur" />
           <feMerge>
-            <feMergeNode in="blur" />
+            <feMergeNode in="coloredBlur" />
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
@@ -32,7 +35,7 @@ export default function FlowDiagram() {
       {PLATFORMS.map((p, i) => {
         const y = 20 + i * 58
         return (
-          <a key={p.name} href={p.url} target="_blank" rel="noopener noreferrer">
+          <a key={p.name} href={getPlatformUrl(p.name)} target="_blank" rel="noopener noreferrer">
             <motion.g
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -72,7 +75,7 @@ export default function FlowDiagram() {
       {OUTPUTS.map((o, i) => {
         const y = 65 + i * 80
         return (
-          <a key={o.name} href={o.url} target="_blank" rel="noopener noreferrer">
+          <a key={o.name} href={getPlatformUrl(o.name)} target="_blank" rel="noopener noreferrer">
             <motion.g
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}

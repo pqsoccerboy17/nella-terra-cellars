@@ -6,7 +6,7 @@ import {
 import { monthlyRevenue, kpiByMonth, qbCategories, wines } from '../../data/dummy'
 import KPICard from '../ui/KPICard'
 import SKUTable from '../ui/SKUTable'
-import { AnimatedSection, AnimatedDiv } from '../shared/AnimatedSection'
+import { AnimatedSection, AnimatedDiv, StaggerGrid, StaggerItem } from '../shared/AnimatedSection'
 import PageTransition from '../shared/PageTransition'
 import useCountUp from '../../hooks/useCountUp'
 
@@ -59,7 +59,7 @@ export default function Dashboard({ embedded = false }) {
   }, [])
 
   const content = (
-    <section className="section-padding bg-surface">
+    <section className="section-padding bg-surface gradient-mesh">
       <div className="max-w-6xl mx-auto">
           <AnimatedSection className="text-center mb-10">
             <span className="section-label">Unified Dashboard</span>
@@ -101,20 +101,20 @@ export default function Dashboard({ embedded = false }) {
           </AnimatedDiv>
 
           {/* KPI cards */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
-            <AnimatedDiv delay={0}>
+          <StaggerGrid className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
+            <StaggerItem>
               <KPICard label="Active Members" value={kpi.activeMembers} trend={kpi.trends.activeMembers} />
-            </AnimatedDiv>
-            <AnimatedDiv delay={0.1}>
+            </StaggerItem>
+            <StaggerItem>
               <KPICard label="Avg Order Value" value={kpi.avgOrderValue} prefix="$" trend={kpi.trends.avgOrderValue} />
-            </AnimatedDiv>
-            <AnimatedDiv delay={0.2}>
+            </StaggerItem>
+            <StaggerItem>
               <KPICard label="Tastings Booked" value={kpi.tastingsBooked} trend={kpi.trends.tastingsBooked} />
-            </AnimatedDiv>
-            <AnimatedDiv delay={0.3}>
+            </StaggerItem>
+            <StaggerItem>
               <KPICard label="Time to Report" value={kpi.timeToReport} />
-            </AnimatedDiv>
-          </div>
+            </StaggerItem>
+          </StaggerGrid>
 
           {/* Stacked bar chart */}
           <AnimatedDiv className="card p-6 mb-10">

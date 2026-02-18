@@ -3,7 +3,7 @@ import TableOfContents from '../ui/TableOfContents'
 import TechCallout from '../ui/TechCallout'
 import CodeBlock from '../ui/CodeBlock'
 import DiagramPipeline from '../ui/DiagramPipeline'
-import { AnimatedSection, AnimatedDiv } from '../shared/AnimatedSection'
+import { AnimatedSection, AnimatedDiv, AnimatedSlideIn } from '../shared/AnimatedSection'
 import { fieldMappings, qbCategoryRules } from '../../data/docs-content'
 
 const TOC = [
@@ -28,10 +28,10 @@ export default function Pipeline() {
       <TableOfContents items={TOC} />
 
       <SectionHeading id="pipeline-overview">Pipeline Overview</SectionHeading>
-      <AnimatedDiv>
+      <AnimatedSlideIn direction="left">
         <p className="mb-6">Five stages, executed sequentially after all parallel data pulls complete. Each stage is a pure transformation — no side effects, no external calls. If any stage fails, the pipeline stops and reports exactly where.</p>
         <DiagramPipeline />
-      </AnimatedDiv>
+      </AnimatedSlideIn>
 
       <SectionHeading id="normalize">Stage 1: Normalize</SectionHeading>
       <AnimatedDiv>
@@ -116,12 +116,12 @@ export default function Pipeline() {
         <p className="mb-4">Reconciled, categorized orders get written to two destinations:</p>
 
         <div className="grid md:grid-cols-2 gap-4 my-6">
-          <div className="card-muted p-5 rounded-lg">
+          <div className="card-layer-output p-5">
             <p className="text-text font-semibold mb-2">Google Sheets</p>
             <p className="text-text-secondary text-base mb-3">One row per order, one sheet per month. Structured columns: date, source, channel, amount, QB category, account code.</p>
             <p className="text-text-secondary text-sm">Appends new rows — never overwrites. Monthly sheet auto-created on first entry.</p>
           </div>
-          <div className="card-muted p-5 rounded-lg">
+          <div className="card-layer-output p-5">
             <p className="text-text font-semibold mb-2">QuickBooks Journal Entry</p>
             <p className="text-text-secondary text-base mb-3">Draft journal entry grouped by QB category. Debit revenue accounts, credit bank deposit. Ready for bookkeeper review.</p>
             <p className="text-text-secondary text-sm">Phase 2 — initial deployment targets Sheets-only output.</p>

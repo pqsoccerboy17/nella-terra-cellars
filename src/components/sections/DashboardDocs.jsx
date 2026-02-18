@@ -2,7 +2,7 @@ import TechCallout from '../ui/TechCallout'
 import SectionHeading from '../ui/SectionHeading'
 import TableOfContents from '../ui/TableOfContents'
 import Dashboard from './Dashboard'
-import { AnimatedSection, AnimatedDiv } from '../shared/AnimatedSection'
+import { AnimatedSection, AnimatedDiv, StaggerGrid, StaggerItem } from '../shared/AnimatedSection'
 
 const TOC = [
   { id: 'data-context', label: 'Data Context', level: 2 },
@@ -29,20 +29,26 @@ export default function DashboardDocs() {
           <p>This demo uses representative data that reflects realistic revenue patterns for a winery of Nella Terra's size. In production, this dashboard updates every morning at 6:15 AM after the automation pipeline completes.</p>
         </TechCallout>
 
-        <div className="grid md:grid-cols-3 gap-4 my-6">
-          <div className="card-muted p-4 rounded-lg text-center">
-            <p className="text-text-secondary text-sm uppercase tracking-wider mb-1">Data Sources</p>
-            <p className="text-text font-semibold text-lg">4 platforms</p>
-          </div>
-          <div className="card-muted p-4 rounded-lg text-center">
-            <p className="text-text-secondary text-sm uppercase tracking-wider mb-1">Update Frequency</p>
-            <p className="text-text font-semibold text-lg">Daily at 6:15 AM</p>
-          </div>
-          <div className="card-muted p-4 rounded-lg text-center">
-            <p className="text-text-secondary text-sm uppercase tracking-wider mb-1">Latency</p>
-            <p className="text-text font-semibold text-lg">~35 seconds</p>
-          </div>
-        </div>
+        <StaggerGrid className="grid md:grid-cols-3 gap-4 my-6">
+          <StaggerItem>
+            <div className="card-muted p-4 rounded-lg text-center">
+              <p className="text-text-secondary text-sm uppercase tracking-wider mb-1">Data Sources</p>
+              <p className="text-text font-semibold text-lg">4 platforms</p>
+            </div>
+          </StaggerItem>
+          <StaggerItem>
+            <div className="card-muted p-4 rounded-lg text-center">
+              <p className="text-text-secondary text-sm uppercase tracking-wider mb-1">Update Frequency</p>
+              <p className="text-text font-semibold text-lg">Daily at 6:15 AM</p>
+            </div>
+          </StaggerItem>
+          <StaggerItem>
+            <div className="card-muted p-4 rounded-lg text-center">
+              <p className="text-text-secondary text-sm uppercase tracking-wider mb-1">Latency</p>
+              <p className="text-text font-semibold text-lg">~35 seconds</p>
+            </div>
+          </StaggerItem>
+        </StaggerGrid>
       </AnimatedDiv>
 
       <SectionHeading id="live-demo">Live Demo</SectionHeading>

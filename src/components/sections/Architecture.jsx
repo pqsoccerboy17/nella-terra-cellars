@@ -1,10 +1,11 @@
+import { motion } from 'framer-motion'
 import SectionHeading from '../ui/SectionHeading'
 import TableOfContents from '../ui/TableOfContents'
 import TechCallout from '../ui/TechCallout'
 import DiagramArchitecture from '../ui/DiagramArchitecture'
 import FlowDiagram from '../ui/FlowDiagram'
 import ExternalLink from '../ui/ExternalLink'
-import { AnimatedSection, AnimatedDiv } from '../shared/AnimatedSection'
+import { AnimatedSection, AnimatedDiv, AnimatedSlideIn } from '../shared/AnimatedSection'
 import { techStack, designPatterns } from '../../data/docs-content'
 
 const TOC = [
@@ -29,16 +30,16 @@ export default function Architecture() {
       <TableOfContents items={TOC} />
 
       <SectionHeading id="system-diagram">System Diagram</SectionHeading>
-      <AnimatedDiv>
+      <AnimatedSlideIn direction="left">
         <p className="mb-6">Four tiers from source platforms to final outputs. Each MCP server wraps one platform's REST API, giving Claude Code a uniform tool interface regardless of the underlying auth or pagination differences.</p>
         <DiagramArchitecture />
-      </AnimatedDiv>
+      </AnimatedSlideIn>
 
       <SectionHeading id="tech-stack">Tech Stack</SectionHeading>
       <AnimatedDiv>
         <div className="grid md:grid-cols-2 gap-6 my-6">
           {/* Platform layer */}
-          <div className="card-muted p-5 rounded-lg">
+          <div className="card-layer-platform p-5">
             <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-3">Platform Layer</p>
             <div className="space-y-3">
               {techStack.platform.map(t => (
@@ -56,7 +57,7 @@ export default function Architecture() {
           </div>
 
           {/* Automation layer */}
-          <div className="card-muted p-5 rounded-lg">
+          <div className="card-layer-automation p-5">
             <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-3">Automation Layer</p>
             <div className="space-y-3">
               {techStack.automation.map(t => (
@@ -73,7 +74,7 @@ export default function Architecture() {
         </div>
 
         {/* Output layer */}
-        <div className="card-muted p-5 rounded-lg max-w-md">
+        <div className="card-layer-output p-5 max-w-md">
           <p className="text-sm font-semibold text-accent uppercase tracking-wider mb-3">Output Layer</p>
           <div className="space-y-3">
             {techStack.output.map(t => (
@@ -95,10 +96,15 @@ export default function Architecture() {
       <AnimatedDiv>
         <div className="space-y-4 my-4">
           {designPatterns.map((p) => (
-            <div key={p.name} className="card-muted p-4 rounded-lg">
+            <motion.div
+              key={p.name}
+              className="card-muted p-4 rounded-lg"
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.2 }}
+            >
               <p className="text-text font-semibold text-base mb-1">{p.name}</p>
               <p className="text-text-secondary text-base">{p.description}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </AnimatedDiv>
@@ -112,10 +118,10 @@ export default function Architecture() {
       </AnimatedDiv>
 
       <SectionHeading id="simplified-view">Simplified View</SectionHeading>
-      <AnimatedDiv>
+      <AnimatedSlideIn direction="right">
         <p className="mb-6">The same flow, condensed. Data enters from four platforms on the left, passes through the automation layer, and exits as structured reports on the right.</p>
         <FlowDiagram />
-      </AnimatedDiv>
+      </AnimatedSlideIn>
     </>
   )
 }

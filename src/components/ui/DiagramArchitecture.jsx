@@ -1,16 +1,17 @@
 import { motion } from 'framer-motion'
+import { getPlatformUrl } from '../../data/platform-links'
 
 /**
  * 4-tier architecture SVG: Platforms -> MCP Servers -> Claude Code/Cowork -> Outputs.
- * Brand colors per platform, clickable boxes linking to platform sites.
+ * Brand colors per platform, clickable boxes linking to API docs.
  */
 const ease = [0.25, 0.46, 0.45, 0.94]
 
 const PLATFORMS = [
-  { name: 'Commerce7', color: '#8B4049', url: 'https://commerce7.com' },
-  { name: 'Tock', color: '#2D2D2D', url: 'https://www.exploretock.com' },
-  { name: 'Square', color: '#4A7EC4', url: 'https://squareup.com' },
-  { name: 'VinoShipper', color: '#6B2D5B', url: 'https://vinoshipper.com' },
+  { name: 'Commerce7', color: '#8B4049' },
+  { name: 'Tock', color: '#2D2D2D' },
+  { name: 'Square', color: '#4A7EC4' },
+  { name: 'VinoShipper', color: '#6B2D5B' },
 ]
 
 const MCP_SERVERS = [
@@ -21,19 +22,21 @@ const MCP_SERVERS = [
 ]
 
 const OUTPUTS = [
-  { name: 'Google Sheets', url: 'https://sheets.google.com' },
-  { name: 'QuickBooks', url: 'https://quickbooks.intuit.com' },
+  { name: 'Google Sheets' },
+  { name: 'QuickBooks' },
 ]
 
 export default function DiagramArchitecture() {
   return (
     <svg viewBox="0 0 780 420" className="w-full max-w-4xl mx-auto" aria-label="4-tier architecture diagram">
-      {/* SVG glow filter for hover */}
+      {/* Enhanced SVG glow filter with colored flood */}
       <defs>
         <filter id="glow-arch" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feGaussianBlur stdDeviation="4" result="blur" />
+          <feFlood floodColor="var(--color-accent)" floodOpacity="0.15" result="color" />
+          <feComposite in="color" in2="blur" operator="in" result="coloredBlur" />
           <feMerge>
-            <feMergeNode in="blur" />
+            <feMergeNode in="coloredBlur" />
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
@@ -49,7 +52,7 @@ export default function DiagramArchitecture() {
       {PLATFORMS.map((p, i) => {
         const x = 12 + i * 195
         return (
-          <a key={p.name} href={p.url} target="_blank" rel="noopener noreferrer">
+          <a key={p.name} href={getPlatformUrl(p.name)} target="_blank" rel="noopener noreferrer">
             <motion.g
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -147,7 +150,7 @@ export default function DiagramArchitecture() {
       {OUTPUTS.map((o, i) => {
         const x = 100 + i * 390
         return (
-          <a key={o.name} href={o.url} target="_blank" rel="noopener noreferrer">
+          <a key={o.name} href={getPlatformUrl(o.name)} target="_blank" rel="noopener noreferrer">
             <motion.g
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
