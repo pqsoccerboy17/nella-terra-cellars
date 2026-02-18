@@ -31,10 +31,10 @@ export default function DiagramArchitecture() {
   return (
     <svg viewBox="0 0 780 420" className="w-full max-w-4xl mx-auto" aria-label="4-tier architecture diagram">
       {/* Tier labels */}
-      <text x="390" y="24" textAnchor="middle" fill="#6B6560" fontSize="10" fontWeight="700" letterSpacing="0.1em" fontFamily="DM Sans, sans-serif">PLATFORM LAYER</text>
-      <text x="390" y="134" textAnchor="middle" fill="#6B6560" fontSize="10" fontWeight="700" letterSpacing="0.1em" fontFamily="DM Sans, sans-serif">MCP SERVERS</text>
-      <text x="390" y="244" textAnchor="middle" fill="#6B6560" fontSize="10" fontWeight="700" letterSpacing="0.1em" fontFamily="DM Sans, sans-serif">AUTOMATION LAYER</text>
-      <text x="390" y="354" textAnchor="middle" fill="#6B6560" fontSize="10" fontWeight="700" letterSpacing="0.1em" fontFamily="DM Sans, sans-serif">OUTPUTS</text>
+      <text x="390" y="24" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="10" fontWeight="700" letterSpacing="0.1em" fontFamily="DM Sans, sans-serif">PLATFORM LAYER</text>
+      <text x="390" y="134" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="10" fontWeight="700" letterSpacing="0.1em" fontFamily="DM Sans, sans-serif">MCP SERVERS</text>
+      <text x="390" y="244" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="10" fontWeight="700" letterSpacing="0.1em" fontFamily="DM Sans, sans-serif">AUTOMATION LAYER</text>
+      <text x="390" y="354" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="10" fontWeight="700" letterSpacing="0.1em" fontFamily="DM Sans, sans-serif">OUTPUTS</text>
 
       {/* Tier 1: Platform boxes */}
       {PLATFORMS.map((p, i) => {
@@ -60,7 +60,7 @@ export default function DiagramArchitecture() {
           <motion.line
             key={`p-mcp-${i}`}
             x1={x} y1="80" x2={x} y2="145"
-            stroke="#E8E4DE" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.6"
+            stroke="var(--color-border)" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.6"
             initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
             viewport={{ once: true }}
@@ -78,8 +78,8 @@ export default function DiagramArchitecture() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 + i * 0.1, ease }}
         >
-          <rect x={m.x} y="145" width="175" height="40" rx="6" fill="none" stroke="#E8E4DE" strokeWidth="1.5" />
-          <text x={m.x + 87.5} y="170" textAnchor="middle" fill="#6B6560" fontSize="12" fontWeight="600" fontFamily="DM Sans, sans-serif">{m.name}</text>
+          <rect x={m.x} y="145" width="175" height="40" rx="6" fill="none" stroke="var(--color-border)" strokeWidth="1.5" />
+          <text x={m.x + 87.5} y="170" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="12" fontWeight="600" fontFamily="DM Sans, sans-serif">{m.name}</text>
         </motion.g>
       ))}
 
@@ -90,7 +90,7 @@ export default function DiagramArchitecture() {
           <motion.line
             key={`mcp-auto-${i}`}
             x1={x} y1="185" x2={390} y2="255"
-            stroke="#E8E4DE" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.5"
+            stroke="var(--color-border)" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.5"
             initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
             viewport={{ once: true }}
@@ -119,7 +119,7 @@ export default function DiagramArchitecture() {
           <motion.line
             key={`auto-out-${i}`}
             x1={390} y1="310" x2={targetX} y2="365"
-            stroke="#E8E4DE" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.6"
+            stroke="var(--color-border)" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.6"
             initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
             viewport={{ once: true }}

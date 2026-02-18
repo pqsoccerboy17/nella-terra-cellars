@@ -23,14 +23,14 @@ export default function DiagramOrchestration() {
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease }}
       >
-        <rect x="260" y="10" width="180" height="40" rx="20" fill="none" stroke="#6B6560" strokeWidth="1.5" strokeDasharray="6 3" />
-        <text x="350" y="35" textAnchor="middle" fill="#6B6560" fontSize="13" fontWeight="600" fontFamily="DM Sans, sans-serif">Cron — 6:00 AM</text>
+        <rect x="260" y="10" width="180" height="40" rx="20" fill="none" stroke="var(--color-text-secondary)" strokeWidth="1.5" strokeDasharray="6 3" />
+        <text x="350" y="35" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="13" fontWeight="600" fontFamily="DM Sans, sans-serif">Cron — 6:00 AM</text>
       </motion.g>
 
       {/* Arrow: Cron -> Main */}
       <motion.line
         x1="350" y1="50" x2="350" y2="80"
-        stroke="#E8E4DE" strokeWidth="2" opacity="0.7"
+        stroke="var(--color-border)" strokeWidth="2" opacity="0.7"
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
         viewport={{ once: true }}
@@ -57,7 +57,7 @@ export default function DiagramOrchestration() {
           <motion.line
             key={`fan-${i}`}
             x1="350" y1="135" x2={targetX + 75} y2="185"
-            stroke="#E8E4DE" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.5"
+            stroke="var(--color-border)" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.5"
             initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
             viewport={{ once: true }}
@@ -69,7 +69,7 @@ export default function DiagramOrchestration() {
       {/* Cowork label */}
       <motion.text
         x="350" y="172"
-        textAnchor="middle" fill="#6B6560" fontSize="10" fontWeight="700" letterSpacing="0.1em" fontFamily="DM Sans, sans-serif"
+        textAnchor="middle" fill="var(--color-text-secondary)" fontSize="10" fontWeight="700" letterSpacing="0.1em" fontFamily="DM Sans, sans-serif"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -103,7 +103,7 @@ export default function DiagramOrchestration() {
           <motion.line
             key={`fan-in-${i}`}
             x1={sourceX} y1="245" x2="350" y2="300"
-            stroke="#E8E4DE" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.5"
+            stroke="var(--color-border)" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.5"
             initial={{ pathLength: 0 }}
             whileInView={{ pathLength: 1 }}
             viewport={{ once: true }}
@@ -131,9 +131,9 @@ export default function DiagramOrchestration() {
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 1.2, ease }}
       >
-        <text x="650" y="220" textAnchor="end" fill="#6B6560" fontSize="11" fontWeight="600" fontFamily="DM Sans, sans-serif">Wall clock:</text>
-        <text x="650" y="236" textAnchor="end" fill="#2D2A26" fontSize="18" fontWeight="700" fontFamily="DM Sans, sans-serif">~35s</text>
-        <text x="650" y="254" textAnchor="end" fill="#6B6560" fontSize="10" opacity="0.6" fontFamily="DM Sans, sans-serif">(vs ~2 min sequential)</text>
+        <text x="650" y="220" textAnchor="end" fill="var(--color-text-secondary)" fontSize="11" fontWeight="600" fontFamily="DM Sans, sans-serif">Wall clock:</text>
+        <text x="650" y="236" textAnchor="end" fill="var(--color-text)" fontSize="18" fontWeight="700" fontFamily="DM Sans, sans-serif">~35s</text>
+        <text x="650" y="254" textAnchor="end" fill="var(--color-text-secondary)" fontSize="10" opacity="0.6" fontFamily="DM Sans, sans-serif">(vs ~2 min sequential)</text>
       </motion.g>
     </svg>
   )

@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@variant dark (&:is(.dark *));
+
 @theme {
   /* Core palette */
   --color-text: #2D2A26;
@@ -20,6 +22,21 @@
   --color-charcoal: #1A1816;
 
   --font-body: 'DM Sans', sans-serif;
+}
+
+/* Dark mode token overrides */
+:root.dark {
+  --color-surface: #1A1816;
+  --color-surface-alt: #231F1D;
+  --color-text: #EDE9E4;
+  --color-text-secondary: #A09890;
+  --color-border: #3A3532;
+  --color-accent: #C2626B;
+  --color-accent-light: #3D1F22;
+  --color-accent-dark: #A84C54;
+  --color-success: #7AAB7F;
+  --color-warning: #D4AC4A;
+  --color-code-bg: #141210;
 }
 
 /* Base styles */
@@ -63,7 +80,7 @@ body {
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(139, 64, 73, 0.08);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--color-accent) 12%, transparent);
 }
 
 /* Muted card — surface bg for info blocks in docs */

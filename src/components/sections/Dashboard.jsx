@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer,
@@ -40,10 +40,23 @@ function CustomTooltip({ active, payload, label }) {
   )
 }
 
+function getCSSVar(name) {
+  return getComputedStyle(document.documentElement).getPropertyValue(name).trim()
+}
+
 export default function Dashboard({ embedded = false }) {
   const [selectedMonth, setSelectedMonth] = useState('Oct')
   const kpi = kpiByMonth[selectedMonth]
   const { count: heroCount, ref: heroRef } = useCountUp(kpi.totalRevenue)
+
+  const [tickColor, setTickColor] = useState(() => getCSSVar('--color-text-secondary') || '#6B6560')
+
+  useEffect(() => {
+    const update = () => setTickColor(getCSSVar('--color-text-secondary') || '#6B6560')
+    const observer = new MutationObserver(update)
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+    return () => observer.disconnect()
+  }, [])
 
   const content = (
     <section className="section-padding bg-surface">
@@ -108,9 +121,9 @@ export default function Dashboard({ embedded = false }) {
             <h3 className="font-semibold text-lg text-text mb-4">Revenue by Channel — 12 Months</h3>
             <ResponsiveContainer width="100%" height={340}>
               <BarChart data={monthlyRevenue} barCategoryGap="15%">
-                <XAxis dataKey="month" tick={{ fill: '#6B6560', fontSize: 12 }} axisLine={false} tickLine={false} />
+                <XAxis dataKey="month" tick={{ fill: tickColor, fontSize: 12 }} axisLine={false} tickLine={false} />
                 <YAxis
-                  tick={{ fill: '#6B6560', fontSize: 12 }}
+                  tick={{ fill: tickColor, fontSize: 12 }}
                   axisLine={false}
                   tickLine={false}
                   tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`}

@@ -52,7 +52,7 @@ export default function DiagramPipeline() {
             {i < STAGES.length - 1 && (
               <motion.line
                 x1="250" y1={y + stageHeight} x2="250" y2={y + stageHeight + gap}
-                stroke="#E8E4DE" strokeWidth="2" strokeDasharray="4 3" opacity="0.6"
+                stroke="var(--color-border)" strokeWidth="2" strokeDasharray="4 3" opacity="0.6"
                 initial={{ pathLength: 0 }}
                 whileInView={{ pathLength: 1 }}
                 viewport={{ once: true }}
