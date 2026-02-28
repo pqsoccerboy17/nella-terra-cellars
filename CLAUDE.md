@@ -27,5 +27,20 @@ Wine club and tasting room website for Nella Terra Cellars.
 ## Project Structure
 
 - `src/` — React source code (components, pages, assets)
+  - `src/components/layout/` — Header, Sidebar, DocsLayout
+  - `src/components/sections/` — Hero, Architecture, Pipeline, Dashboard, etc.
+  - `src/components/ui/` — CodeBlock, KPICard, FlowDiagram, etc.
+  - `src/components/shared/` — ScrollToTop, PageTransition, AnimatedSection
+  - `src/hooks/` — useTheme (dark/light mode), useCountUp (animated counters)
+  - `src/data/` — docs-nav, docs-content, platform-links
 - `dist/` — build output (gitignored)
 - `vite.config.js` — Vite config with base path `/nella-terra-cellars/`
+
+## Claude Code GitHub Integration
+
+Mention `@claude` in any issue or PR comment to trigger Claude Code via GitHub Actions.
+
+- Workflow: `.github/workflows/claude.yml`
+- Requires `ANTHROPIC_API_KEY` repo secret
+- Triggers on: issue comments, PR review comments, new issues, and PR reviews
+- Claude can read code, answer questions, implement changes, and create PRs
